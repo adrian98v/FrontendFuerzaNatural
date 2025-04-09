@@ -1,0 +1,66 @@
+header {
+    position: absolute;  /* Esto hace que se coloque sobre la imagen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;          /* Asegura que esté encima de la imagen de fondo */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(87, 87, 87, 0.329); /* o transparente si no querés ningún fondo */
+    backdrop-filter: blur(10px); /* Opcional: da efecto glassmorphism suave */
+    box-shadow: 0px 1px 5px rgb(255, 192, 20); /* Shadow effect */
+  }
+header a {
+    font-family:  "Rubik", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    margin-right: 0; /* Spacing between links */
+    text-decoration: none;
+    color: #da9f32; /* Black text */
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    margin-left: 10px; /* Spacing between links */
+    margin-right: 30px;
+    
+}
+
+.logo {
+    width: auto;
+    height: 90px;
+    border-radius: 180px;
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+  
+   
+  
+    /* Sombra para que resalte aún más sobre el fondo */
+    /* box-shadow: 0px 5px 80px rgba(255, 197, 5, 0.212); */
+   
+  }
+header nav {
+    flex-grow: 1; /* Allow nav to take available space */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    
+    gap:5em;
+
+}
+
+
+
+header a:hover {
+    color: #ffb671; /* Change text color on hover */
+    font-size: 28px; /* Increase font size on hover */
+    
+     
+}
+.logo:hover {
+    transform: scale(1.15); /* Slightly enlarge the logo on hover */
+    
+    
+}
+
+
