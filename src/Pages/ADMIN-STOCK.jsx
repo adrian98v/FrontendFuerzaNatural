@@ -1,7 +1,7 @@
 // Catalogo.jsx
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./catalogo.css";
+import "./ADMIN-STOCK.css";
 
 export default function Catalogo() {
   const [categorias, setCategorias] = useState([]);
