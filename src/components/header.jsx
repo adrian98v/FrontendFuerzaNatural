@@ -5,16 +5,16 @@ import logo from '../assets/Logo_SinFondo_MásChico.png';
 const Header = () => {
     return (
         <header>
-            <img src={logo} alt="Logo" className="logo" />
+            <a href=""><img src={logo} alt="Logo" className="logo" /></a>
             <nav>
-                <a href="#home">Inicio</a>
-                <a href="#home">Tienda</a>
-                <a href="#about">Nosotros</a>
-                <a href="#contact">Contacto</a>
-                <a href="#home">Eventos</a>
+                <a href="">Inicio</a>
+                <a href="tienda">Tienda</a>
+                <a href="about">Nosotros</a>
+                <a href="contacto">Contacto</a>
+                <a href="eventos">Eventos</a>
 
             </nav>
-            <a href="#signUp">Sing/UP</a>
+            <a className='login-btn' href="login">Iniciar sesión</a>
 
         </header>
     );

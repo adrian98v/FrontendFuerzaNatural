@@ -7,7 +7,7 @@ function Login() {
     return (
       <div className="login-container">
         <form className="form">
-        <img src={logo} alt="Logo" className="Logo" />
+        <a className='a_logo' href="/"><img src={logo} alt="Logo" className="Logo" /></a>
 
           <h2 className="title">Iniciar Sesión</h2>
   
