@@ -1,4 +1,4 @@
-import Catalogo from './Pages/Catalogo.jsx';
+import Catalogo from './Pages/Tienda.jsx';
 import Login from './Pages/Login.jsx';
 import Home from './Pages/Home.jsx';
 import { Routes, Route } from 'react-router-dom'
