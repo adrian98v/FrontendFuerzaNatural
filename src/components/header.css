@@ -15,7 +15,7 @@ header {
 header a {
     font-family:  "Rubik", sans-serif;
     font-weight: 500;
-    font-size: 25px;
+    font-size: 18px;
     margin-right: 0; /* Spacing between links */
     text-decoration: none;
     color: #da9f32; /* Black text */
@@ -28,7 +28,7 @@ header a {
 
 .logo {
     width: auto;
-    height: 90px;
+    height: 60px;
     border-radius: 180px;
     transition: transform 0.3s ease;
     margin-left: 10px;

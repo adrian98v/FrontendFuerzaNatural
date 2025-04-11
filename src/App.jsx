@@ -1,26 +1,26 @@
-import { useState, useEffect } from 'react';
-import './App.css';
-import Header from './components/header.jsx';
-import Fondo from './assets/Home_Fondo.jpg';
+import Catalogo from './Pages/Catalogo.jsx';
+import Login from './Pages/Login.jsx';
+import Home from './Pages/Home.jsx';
+import { Routes, Route } from 'react-router-dom'
 
-function App() {
+function App(){
   return (
-    <div className="App">
-      <div className="fondo">
-      <Header />
-        <img src={Fondo} alt="Fondo" className="background-image" />
-        <div className="content">
-          <h1 className="small-title">PANIFICADOS DELICIOSOS</h1>
-          <h2 className="large-title">El rey de los desayunos y merienda</h2>
-          <div className="buttons">
-            <button className="catalog-button">Ver Catálogo</button>
-            <button className="about-button">Más Sobre Nosotros</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    <Routes>
+      <Route path='/login' element={
+        <><Login /></>} 
+      />
+      <Route path='/' element={
+        <><Home /></>} 
+      />
+
+      <Route path='/catalogo' element={<Catalogo />} />
+      
+      {/* <Route path='/contacto' element={<Contacto />} /> */}
+      {/* <Route path='*' element={<NotFound />} /> */}
+    </Routes>
+  )
 }
+
 
 export default App;
 
