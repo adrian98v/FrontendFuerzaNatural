@@ -2,6 +2,7 @@ import Catalogo from './Pages/Tienda.jsx';
 import Login from './Pages/Login.jsx';
 import Home from './Pages/Home.jsx';
 import { Routes, Route } from 'react-router-dom'
+import Tienda from './Pages/Tienda.jsx';
 
 function App(){
   return (
@@ -13,7 +14,9 @@ function App(){
         <><Home /></>} 
       />
 
-      <Route path='/catalogo' element={<Catalogo />} />
+      <Route path='/catalogo' element=
+      {<Tienda />} 
+      />
       
       {/* <Route path='/contacto' element={<Contacto />} /> */}
       {/* <Route path='*' element={<NotFound />} /> */}

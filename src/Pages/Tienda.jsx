@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Tienda.css';
+import Header from '../components/Header.jsx'; // Importa el componente Header
+import Fondo from '../assets/PAN_RODAJAS2_VIVA.webp'; 
 
 const Tienda = () => {
   const [categorias, setCategorias] = useState([]);
@@ -29,14 +31,22 @@ const Tienda = () => {
   };
 
   return (
+    <div className="tienda">
+      <Header className= 'tienda-header'></Header>
+      
     <div className="tienda-container">
+      
+      
+      
       <div className="categorias">
+      <h2 className="titulo-categorias">Categorías</h2>
         <button
           className={!categoriaSeleccionada ? 'activo' : ''}
           onClick={() => setCategoriaSeleccionada(null)}
         >
           Todas
         </button>
+        
         {categorias.map(cat => (
           <button
             key={cat.ID_Categoria}
@@ -49,7 +59,7 @@ const Tienda = () => {
       </div>
 
       <div className="productos-container">
-        <h1 className="titulo-tienda">Tienda de Panadería</h1>
+      <h1 className="titulo-tienda">Tienda de Panadería</h1>
         <div className="productos">
           {productos.map(prod => (
             <div key={prod.ID_Producto} className="producto-card">
@@ -69,6 +79,7 @@ const Tienda = () => {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 };

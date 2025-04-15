@@ -1,10 +1,11 @@
 header {
-    position: absolute;  /* Esto hace que se coloque sobre la imagen */
+    
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1;          /* Asegura que esté encima de la imagen de fondo */
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -62,5 +63,6 @@ header a:hover {
     
     
 }
+
 
 
