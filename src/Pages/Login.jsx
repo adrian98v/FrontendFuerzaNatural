@@ -18,6 +18,9 @@ function Login() {
         contrasenia
       });
 
+      sessionStorage.setItem("currentUser", JSON.stringify(response.data.user));
+
+
       console.log('Login exitoso:', response.data);
       navigate('/'); // redirige al home
 
