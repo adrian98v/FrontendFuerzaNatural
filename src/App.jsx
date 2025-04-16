@@ -5,7 +5,12 @@ import { Routes, Route } from "react-router-dom";
 import Tienda from "./Pages/Tienda.jsx";
 import Eventos from "./Pages/Eventos.jsx";
 
+<<<<<<< HEAD
 function App() {
+=======
+function App(){
+  console.log("corriendo en app")
+>>>>>>> 9f954110ac1fd0ba0823a8e44f026076da71d015
   return (
     <Routes>
       <Route
