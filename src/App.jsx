@@ -1,29 +1,38 @@
-import Catalogo from './Pages/Tienda.jsx';
-import Login from './Pages/Login.jsx';
-import Home from './Pages/Home.jsx';
-import { Routes, Route } from 'react-router-dom'
-import Tienda from './Pages/Tienda.jsx';
+import Catalogo from "./Pages/Tienda.jsx";
+import Login from "./Pages/Login.jsx";
+import Home from "./Pages/Home.jsx";
+import { Routes, Route } from "react-router-dom";
+import Tienda from "./Pages/Tienda.jsx";
+import Eventos from "./Pages/Eventos.jsx";
 
-function App(){
+function App() {
   return (
     <Routes>
-      <Route path='/login' element={
-        <><Login /></>} 
+      <Route
+        path="/login"
+        element={
+          <>
+            <Login />
+          </>
+        }
       />
-      <Route path='/' element={
-        <><Home /></>} 
+      <Route
+        path="/"
+        element={
+          <>
+            <Home />
+          </>
+        }
       />
 
-      <Route path='/catalogo' element=
-      {<Tienda />} 
-      />
-      
+      <Route path="/catalogo" element={<Tienda />} />
+
+      <Route path="/eventos" element={<Eventos />} />
+
       {/* <Route path='/contacto' element={<Contacto />} /> */}
       {/* <Route path='*' element={<NotFound />} /> */}
     </Routes>
-  )
+  );
 }
 
-
 export default App;
-

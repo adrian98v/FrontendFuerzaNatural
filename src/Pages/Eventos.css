@@ -1,0 +1,31 @@
+/* src/Pages/Eventos.css */
+
+.eventos-container {
+  background-color: #fdf6f0;
+  color: #4b3621;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.eventos-hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-image: linear-gradient(
+      rgba(255, 248, 240, 0.732),
+      rgba(255, 252, 240, 0.85)
+    ),
+    url("../assets/Home_Fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  border-bottom: 2px solid #e0c9a6;
+}
+
+.eventos-hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.eventos-hero p {
+  font-size: 1.2rem;
+  color: #5a4636;
+}
