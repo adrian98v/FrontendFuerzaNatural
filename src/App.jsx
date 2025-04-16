@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import Tienda from './Pages/Tienda.jsx';
 
 function App(){
+  console.log("corriendo en app")
   return (
     <Routes>
       <Route path='/login' element={

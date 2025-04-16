@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './home.css';
-import Header from '../components/Header.jsx'; // Importa el componente Header
+import Header from '../components/header.jsx'; // Importa el componente Header
 import Fondo from "../assets/ROLLS_CANELA_VIVO.jpg";
 import Imagen1 from "../assets/MASA_CRUDA.jpg";
 import Imagen2 from "../assets/MEDIALUNA_MITAD.jpg";
-import Imagen3 from "../assets/PUBLICIDAD.jpg";
+import Imagen3 from "../assets/PUBLI.jpg";
 
 function Home() {
   const [index, setIndex] = useState(0);
