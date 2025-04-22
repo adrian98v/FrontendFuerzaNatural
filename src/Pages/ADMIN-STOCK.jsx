@@ -1,140 +1,171 @@
-// Catalogo.jsx
-import { useEffect, useState } from "react";
-import axios from "axios";
-import "./ADMIN-STOCK.css";
+import React, { useEffect, useState } from 'react';
+import './ADMIN-STOCK.css';
+import axios from 'axios';
 
-export default function Catalogo() {
+const API = 'http://localhost:3000';
+
+export default function AdminStock() {
   const [categorias, setCategorias] = useState([]);
   const [productos, setProductos] = useState([]);
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
-
-  const [nuevaCategoria, setNuevaCategoria] = useState("");
-  const [nuevoProducto, setNuevoProducto] = useState({
-    nombre: "",
-    precio: "",
-    stock: "",
-    imagen: "",
-    descripcion: "",
-    ID_Categoria: "",
-  });
-
-  const [showModalCategoria, setShowModalCategoria] = useState(false);
-  const [showModalProducto, setShowModalProducto] = useState(false);
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('');
+  const [modal, setModal] = useState(null);
 
   useEffect(() => {
-    obtenerCategorias();
+    fetchCategorias();
+    fetchProductos();
   }, []);
 
-  useEffect(() => {
-    if (categoriaSeleccionada) {
-      obtenerProductosPorCategoria(categoriaSeleccionada);
-    } else {
-      setProductos([]);
-    }
-  }, [categoriaSeleccionada]);
-
-  const obtenerCategorias = async () => {
-    const res = await axios.get("http://localhost:3000/api/categorias");
+  const fetchCategorias = async () => {
+    const res = await axios.get(`${API}/Categorias`);
     setCategorias(res.data);
   };
 
-  const obtenerProductosPorCategoria = async (idCategoria) => {
-    const res = await axios.get(`http://localhost:3000/api/productos/categoria/${idCategoria}`);
+  const fetchProductos = async () => {
+    const res = await axios.get(`${API}/Productos`);
     setProductos(res.data);
   };
 
-  const agregarCategoria = async () => {
-    await axios.post("http://localhost:3000/api/categorias", { nombre: nuevaCategoria });
-    setNuevaCategoria("");
-    setShowModalCategoria(false);
-    obtenerCategorias();
+  const abrirModal = (tipo, entidad, datos = {}) => {
+    setModal({ tipo, entidad, datos });
   };
 
-  const agregarProducto = async () => {
-    await axios.post("http://localhost:3000/api/productos", nuevoProducto);
-    setNuevoProducto({ nombre: "", precio: "", stock: "", imagen: "", descripcion: "", ID_Categoria: "" });
-    setShowModalProducto(false);
-    if (categoriaSeleccionada) obtenerProductosPorCategoria(categoriaSeleccionada);
+  const cerrarModal = () => setModal(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = new FormData(e.target);
+    const data = Object.fromEntries(form.entries());
+
+    try {
+      if (modal.entidad === 'categoria') {
+        if (modal.tipo === 'crear') await axios.post(`${API}/AgregarCategoria`, data);
+        else await axios.put(`${API}/ActualizarCategoria/${modal.datos.ID_Categoria}`, data);
+        fetchCategorias();
+      } else {
+        if (modal.tipo === 'crear') await axios.post(`${API}/AgregarProducto`, data);
+        else await axios.put(`${API}/ActualizarProducto/${modal.datos.ID_Producto}`, data);
+        fetchProductos();
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      cerrarModal();
+    }
   };
+
+  const handleEliminar = async () => {
+    try {
+      if (modal.entidad === 'categoria') {
+        await axios.delete(`${API}/EliminarCategoria/${modal.datos.ID_Categoria}`);
+        fetchCategorias();
+      } else {
+        await axios.delete(`${API}/EliminarProducto/${modal.datos.ID_Producto}`);
+        fetchProductos();
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      cerrarModal();
+    }
+  };
+
+  // Filtrar productos por nombre de categoría
+  const productosFiltrados = categoriaSeleccionada
+    ? productos.filter(prod => {
+        const categoria = categorias.find(c => c.ID_Categoria === prod.ID_Categoria);
+        return categoria && categoria.nombre.toLowerCase().includes(categoriaSeleccionada.toLowerCase());
+      })
+    : productos;
 
   return (
-    <div className="catalogo-container">
-      <h1 className="titulo">Catálogo de Productos</h1>
-
-      <div className="acciones">
-        <button onClick={() => setShowModalCategoria(true)} className="btn btn-verde">+ Categoría</button>
-        <button onClick={() => setShowModalProducto(true)} className="btn btn-azul">+ Producto</button>
-      </div>
-
-      <div className="catalogo-layout">
-        <div className="categorias-lista">
-          <h3>Categorías</h3>
-          <ul>
-            {categorias.map((cat) => (
-              <li
-                key={cat.ID_Categoria}
-                className={categoriaSeleccionada === cat.ID_Categoria ? "categoria activa" : "categoria"}
-                onClick={() => setCategoriaSeleccionada(cat.ID_Categoria)}
-              >
-                {cat.nombre}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="productos-grid">
-          {productos.map((prod) => (
-            <div key={prod.ID_Producto} className="producto-card">
-              <img src={prod.imagen} alt={prod.nombre} className="producto-img" />
-              <h2 className="producto-nombre">{prod.nombre}</h2>
-              <p className="producto-desc">{prod.descripcion}</p>
-              <p className="producto-precio">${prod.precio}</p>
-              <p className="producto-stock">Stock: {prod.stock}</p>
-            </div>
+    <div className="admin-container">
+      <section>
+        <h2>Categorías <button onClick={() => abrirModal('crear', 'categoria')}>Añadir</button></h2>
+        <ul>
+          {categorias.map(cat => (
+            <li key={cat.ID_Categoria}>
+              <div className="product-item">
+                <div className="product-attributes">
+                  <div><strong>Nombre:</strong> {cat.nombre}</div>
+                </div>
+                <span className="actions">
+                  <button onClick={() => abrirModal('editar', 'categoria', cat)}>Editar</button>
+                  <button onClick={() => abrirModal('eliminar', 'categoria', cat)}>Eliminar</button>
+                </span>
+              </div>
+            </li>
           ))}
-        </div>
-      </div>
+        </ul>
+      </section>
 
-      {/* Modal Categoría */}
-      {showModalCategoria && (
+      <section>
+        <h2>Buscar por Categoría</h2>
+        <input
+          type="text"
+          placeholder="Buscar categoría..."
+          value={categoriaSeleccionada}
+          onChange={(e) => setCategoriaSeleccionada(e.target.value)}
+        />
+
+        <h2>Productos <button onClick={() => abrirModal('crear', 'producto')}>Añadir</button></h2>
+        <ul>
+          {productosFiltrados.map(prod => (
+            <li key={prod.ID_Producto}>
+              <div className="product-item">
+                <div className="product-attributes">
+                  <div><strong>Nombre:</strong> {prod.nombre}</div>
+                  <div><strong>Categoría:</strong> {categorias.find(c => c.ID_Categoria === prod.ID_Categoria)?.nombre || 'Sin categoría'}</div>
+                  <div><strong>Precio:</strong> ${prod.precio}</div>
+                  <div><strong>Stock:</strong> {prod.stock}</div>
+                  <div><strong>Descripción:</strong> {prod.descripcion}</div> {/* Descripción añadida */}
+                </div>
+                <span className="actions">
+                  <button onClick={() => abrirModal('editar', 'producto', prod)}>Editar</button>
+                  <button onClick={() => abrirModal('eliminar', 'producto', prod)}>Eliminar</button>
+                </span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {modal && (
         <div className="modal-overlay">
           <div className="modal">
-            <h2>Nueva Categoría</h2>
-            <input
-              type="text"
-              value={nuevaCategoria}
-              onChange={(e) => setNuevaCategoria(e.target.value)}
-              className="input"
-              placeholder="Nombre de categoría"
-            />
-            <div className="modal-buttons">
-              <button onClick={() => setShowModalCategoria(false)} className="btn btn-gris">Cancelar</button>
-              <button onClick={agregarCategoria} className="btn btn-verde">Agregar</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Modal Producto */}
-      {showModalProducto && (
-        <div className="modal-overlay">
-          <div className="modal modal-producto">
-            <h2>Nuevo Producto</h2>
-            <input type="text" placeholder="Nombre" className="input" value={nuevoProducto.nombre} onChange={(e) => setNuevoProducto({ ...nuevoProducto, nombre: e.target.value })} />
-            <input type="number" placeholder="Precio" className="input" value={nuevoProducto.precio} onChange={(e) => setNuevoProducto({ ...nuevoProducto, precio: e.target.value })} />
-            <input type="number" placeholder="Stock" className="input" value={nuevoProducto.stock} onChange={(e) => setNuevoProducto({ ...nuevoProducto, stock: e.target.value })} />
-            <input type="text" placeholder="Imagen (URL)" className="input" value={nuevoProducto.imagen} onChange={(e) => setNuevoProducto({ ...nuevoProducto, imagen: e.target.value })} />
-            <textarea placeholder="Descripción" className="input" value={nuevoProducto.descripcion} onChange={(e) => setNuevoProducto({ ...nuevoProducto, descripcion: e.target.value })} />
-            <select className="input" value={nuevoProducto.ID_Categoria} onChange={(e) => setNuevoProducto({ ...nuevoProducto, ID_Categoria: e.target.value })}>
-              <option value="">Seleccionar Categoría</option>
-              {categorias.map((cat) => (
-                <option key={cat.ID_Categoria} value={cat.ID_Categoria}>{cat.nombre}</option>
-              ))}
-            </select>
-            <div className="modal-buttons">
-              <button onClick={() => setShowModalProducto(false)} className="btn btn-gris">Cancelar</button>
-              <button onClick={agregarProducto} className="btn btn-azul">Agregar</button>
-            </div>
+            <button className="close" onClick={cerrarModal}>X</button>
+            {modal.tipo === 'eliminar' ? (
+              <div>
+                <h3>¿Estás seguro que quieres eliminar esta {modal.entidad}?</h3>
+                <button className="btn-confirm" onClick={handleEliminar}>Confirmar</button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <h3>{modal.tipo === 'crear' ? 'Añadir' : 'Editar'} {modal.entidad}</h3>
+                {modal.entidad === 'categoria' ? (
+                  <input
+                    name="nombre"
+                    defaultValue={modal.datos.nombre || ''}
+                    placeholder="Nombre de la categoría"
+                    required
+                  />
+                ) : (
+                  <>
+                    <input name="nombre" defaultValue={modal.datos.nombre || ''} placeholder="Nombre" required />
+                    <input name="precio" defaultValue={modal.datos.precio || ''} placeholder="Precio" type="number" step="0.01" required />
+                    <input name="stock" defaultValue={modal.datos.stock || ''} placeholder="Stock" type="number" required />
+                    <input name="imagen" defaultValue={modal.datos.imagen || ''} placeholder="URL de imagen" />
+                    <textarea name="descripcion" defaultValue={modal.datos.descripcion || ''} placeholder="Descripción"></textarea>
+                    <select name="ID_Categoria" defaultValue={modal.datos.ID_Categoria || ''} required>
+                      <option value="">Seleccionar categoría</option>
+                      {categorias.map(c => (
+                        <option key={c.ID_Categoria} value={c.ID_Categoria}>{c.nombre}</option>
+                      ))}
+                    </select>
+                  </>
+                )}
+                <button type="submit">Guardar</button>
+              </form>
+            )}
           </div>
         </div>
       )}

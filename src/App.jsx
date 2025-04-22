@@ -1,4 +1,4 @@
-import Catalogo from './Pages/Tienda.jsx';
+import STOCK from './Pages/ADMIN-STOCK.jsx';
 import Login from './Pages/Login.jsx';
 import Home from './Pages/Home.jsx';
 import { Routes, Route } from 'react-router-dom'
@@ -21,6 +21,10 @@ function App(){
       
       {/* <Route path='/contacto' element={<Contacto />} /> */}
       {/* <Route path='*' element={<NotFound />} /> */}
+
+      <Route path='/Admin-Stock' element={
+        <>< STOCK/></>}
+      />
     </Routes>
   )
 }

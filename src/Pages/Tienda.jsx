@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Tienda.css';
-import Header from '../components/Header.jsx'; // Importa el componente Header
+import Header from '../components/header.jsx'; // Importa el componente Header
 import Fondo from '../assets/PAN_RODAJAS2_VIVA.webp'; 
 
 const Tienda = () => {
@@ -12,7 +12,7 @@ const Tienda = () => {
   const [carrito, setCarrito] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/categorias')
+    axios.get('http://localhost:3000/Categorias')
       .then(res => setCategorias(res.data));
   }, []);
 

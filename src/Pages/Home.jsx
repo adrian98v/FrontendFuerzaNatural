@@ -49,6 +49,7 @@ function Home() {
 
   return (
     <div className="App">
+
       <div className="fondo">
         <Header />
         <img src={Fondo} alt="Fondo" className="background-image" />
@@ -61,7 +62,7 @@ function Home() {
           </div>
         </div>
       </div>
-
+      <div className="fondo2">
       {/* Carrusel con texto */}
       <div className="carousel-text-container">
         <div
@@ -89,6 +90,7 @@ function Home() {
           <h2>{texts[index].title}</h2>
           <p>{texts[index].text}</p>
         </div>
+      </div>
       </div>
     </div>
   );
