@@ -4,13 +4,16 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Rubik", sans-serif;
-  background-color: #d4aa82;
 }
 
 /* Aplicación */
 .App {
   font-weight: 100;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  
 }
+
 
 /* Fondo con imagen */
 .fondo {
@@ -97,6 +100,12 @@ body {
 .about-button:hover {
   background-color: #ffffff1a;
   transform: scale(1.05);
+}
+
+.fondo2{
+  background-color: #d4aa82;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 /* Sección Carrusel + Texto */
