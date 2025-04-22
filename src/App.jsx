@@ -4,6 +4,8 @@ import Home from "./Pages/Home.jsx";
 import { Routes, Route } from "react-router-dom";
 import Tienda from "./Pages/Tienda.jsx";
 import Eventos from "./Pages/Eventos.jsx";
+import {AdminHeader} from "./admin_panel/admin-header.jsx"
+
 
 function App() {
   console.log("corriendo en app");
@@ -29,6 +31,14 @@ function App() {
       <Route path="/catalogo" element={<Tienda />} />
 
       <Route path="/eventos" element={<Eventos />} />
+
+
+      <Route path="/admin" element={
+        <>
+        <AdminHeader></AdminHeader>
+        
+        </>
+      } />
 
       {/* <Route path='/contacto' element={<Contacto />} /> */}
       {/* <Route path='*' element={<NotFound />} /> */}

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 function Login() {
   const [email, setEmail] = useState('');
   const [contrasenia, setPassword] = useState('');
@@ -16,12 +17,9 @@ function Login() {
       const response = await axios.post('http://localhost:3000/login', {
         email,
         contrasenia
-      });
-
-      sessionStorage.setItem("currentUser", JSON.stringify(response.data.user));
+      }, {withCredentials: true});
 
 
-      console.log('Login exitoso:', response.data);
       navigate('/'); // redirige al home
 
     } catch (error) {
