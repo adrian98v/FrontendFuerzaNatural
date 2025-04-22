@@ -1,9 +1,10 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import "./header.css";
 import logo from "../assets/Logo_SinFondo_MásChico.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
+import { useCarrito } from "../context/CarritoContext";
 
 
 const Header = () => {
@@ -40,13 +41,6 @@ const Header = () => {
     
   }, [])
 
-=======
-import React, { useState } from "react";
-import "./header.css";
-import logo from "../assets/Logo_SinFondo_MásChico.png";
-import { useCarrito } from "../context/CarritoContext";
-
-const Header = () => {
   const {
     carrito,
     quitarDelCarrito,
@@ -61,7 +55,6 @@ const Header = () => {
   };
 
   const cantidadTotal = carrito.reduce((acc, item) => acc + item.cantidad, 0);
->>>>>>> 9618db4121c7515c0a804c3cfa7dfb155a457e54
 
   return (
     <>
@@ -84,21 +77,15 @@ const Header = () => {
           <a href="/eventos">Eventos</a>
         </nav>
 
-<<<<<<< HEAD
         
         <button className="login-btn" onClick={user ? handleLogout : () => navigate("/login")}>
         {user ? "Cerrar Sesión" : "Iniciar Sesión"}
         </button>
 
-=======
 
-        <a className="login-btn" href="/login">
-          Iniciar sesión
-        </a>
         <button className="carrito-btn" onClick={toggleCarrito}>
           🛒 ({cantidadTotal})
         </button>
->>>>>>> 9618db4121c7515c0a804c3cfa7dfb155a457e54
       </header>
 
       {mostrarCarrito && (
@@ -127,6 +114,7 @@ const Header = () => {
           <p><strong>Total: ${totalCarrito.toFixed(2)}</strong></p>
         </div>
       )}
+
     </>
   );
 };
