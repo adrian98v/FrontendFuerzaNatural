@@ -1,0 +1,57 @@
+/* src/components/Contacto.css */
+
+.contacto-container {
+  background-color: #fff9f3;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  color: #4b3621;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.contacto-info .info-item {
+  background: #f7eedd;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contacto-info i {
+  font-size: 1.8rem;
+  color: #a87443;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e3d5c3;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #4b3621;
+  font-size: 1rem;
+}
+
+.contacto-form input:focus,
+.contacto-form textarea:focus {
+  border-color: #c7a36d;
+  outline: none;
+  box-shadow: 0 0 5px rgba(199, 163, 109, 0.4);
+}
+
+.btn-enviar {
+  padding: 0.75rem 2rem;
+  background-color: #a87443;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-enviar:hover {
+  background-color: #8d6034;
+}
