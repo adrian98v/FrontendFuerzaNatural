@@ -10,13 +10,13 @@ import { useCarrito } from "../context/CarritoContext";
 const Header = () => {
 
   const [user, setUser] = useState(null)
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   async function handleLogout() {
     try {
       const result = await axios.post('http://localhost:3000/logout', {}, { withCredentials: true });
       
-      console.log(result)
+      setUser(null);
       navigate("/")
       
     } catch (error) {
