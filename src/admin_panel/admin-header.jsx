@@ -17,6 +17,6 @@ export const AdminHeader = () => {
 
         <div className="admin_pedidos_container">
             <a href="/admin-pedidos">Pedidos</a>
-        </div>
+        </div> 
     </div>)
 }

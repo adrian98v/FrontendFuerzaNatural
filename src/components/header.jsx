@@ -107,7 +107,13 @@ const Header = () => {
                     </div>
                   </div>
                 </li>
+                
               ))}
+              
+              <a href="#Checkout" className="carrito-controles">
+                <button >Finalizar Compra</button>
+              </a>
+              
             </ul>
           )}
           <hr />

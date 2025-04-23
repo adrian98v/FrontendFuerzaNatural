@@ -5,8 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import Tienda from "./Pages/Tienda.jsx";
 import Eventos from "./Pages/Eventos.jsx";
 import { CarritoProvider } from "./context/CarritoContext";
-
 import {AdminHeader} from "./admin_panel/admin-header.jsx"
+import Checkout from "./Pages/Checkout.jsx";
 
 
 function App() {
@@ -46,6 +46,10 @@ function App() {
       {/* <Route path='/contacto' element={<Contacto />} /> */}
       {/* <Route path='*' element={<NotFound />} /> */}
 
+        <Route path='/Checkout' element={
+        <><Checkout/></>}
+        /> 
+        
       <Route path='/Admin-Stock' element={
         <>< STOCK/></>}
       />
