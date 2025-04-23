@@ -41,7 +41,7 @@ export const AdminHeader = () => {
             <a href="/admin-pedidos">Pedidos</a>
         </div>
 
-        <button className="admin_account_button" onClick={user ? handleLogout : () => navigate("/admin-signup")}>
+        <button className="admin_account_button" onClick={()=>{navigate("/admin-signup")}}>
         Nueva cuenta
         </button>
 

@@ -42,7 +42,7 @@ import { useNavigate } from 'react-router-dom';
           <img src={logo} alt="Logo" className="Logo" />
         </a>
 
-        <h2 className="title">Iniciar Sesión</h2>
+        <h2 className="title">Crear cuenta</h2>
 
         <input
           type="text"

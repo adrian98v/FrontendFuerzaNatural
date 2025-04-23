@@ -10,7 +10,7 @@ import Checkout from "./Pages/Checkout.jsx";
 import { useState, useEffect, createContext } from "react";
 import axios from "axios";
 import { Signup } from "./Pages/Signup.jsx";
-import { AdminSignup } from "./Pages/admin-signup.jsx";
+import { AdminSignup } from "./Pages/Admin-signup.jsx";
 
 export const DataContext = createContext()
 
