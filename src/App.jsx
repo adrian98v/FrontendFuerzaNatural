@@ -51,7 +51,7 @@ function App() {
         </>
       } />
 
-      <Route path='/Admin-Stock' element={
+      <Route path='/admin-Stock' element={
         <><AdminHeader></AdminHeader>
         < STOCK/></>}
       />
@@ -96,9 +96,7 @@ function App() {
       {/* <Route path='/contacto' element={<Contacto />} /> */}
       {/* <Route path='*' element={<NotFound />} /> */}
 
-      <Route path='/Admin-Stock' element={
-        <>< STOCK/></>}
-      />
+    
     </Routes>
     </CarritoProvider>
     
