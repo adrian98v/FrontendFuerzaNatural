@@ -14,45 +14,23 @@ function App() {
   return (
     <CarritoProvider>
     <Routes>
-      <Route
-        path="/login"
-        element={
-          <>
-            <Login />
-          </>
-        }
-      />
-      <Route
-        path="/"
-        element={
-          <>
-            <Home />
-          </>
-        }
-      />
+      <Route path="/login" element={<><Login /></>}/>
+      
+      <Route path="/"element={<><Home /></>}/>
 
       <Route path="/catalogo" element={<Tienda />} />
 
       <Route path="/eventos" element={<Eventos />} />
 
 
-      <Route path="/admin" element={
-        <>
-        <AdminHeader></AdminHeader>
-        
-        </>
-      } />
+      <Route path="/admin" element={<><AdminHeader></AdminHeader></>} />
 
       {/* <Route path='/contacto' element={<Contacto />} /> */}
       {/* <Route path='*' element={<NotFound />} /> */}
 
-        <Route path='/Checkout' element={
-        <><Checkout/></>}
-        /> 
+        <Route path='/Checkout' element={<><Checkout/></>}/> 
         
-      <Route path='/Admin-Stock' element={
-        <>< STOCK/></>}
-      />
+      <Route path='/Admin-Stock' element={<>< STOCK/></>}/>
     </Routes>
     </CarritoProvider>
   );

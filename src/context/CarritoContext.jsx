@@ -55,6 +55,10 @@ export const CarritoProvider = ({ children }) => {
     0
   );
 
+  const borrarCarrito = () => {
+    setCarrito([]);
+  };
+
   return (
     <CarritoContext.Provider
       value={{
@@ -63,6 +67,7 @@ export const CarritoProvider = ({ children }) => {
         quitarDelCarrito,
         aumentarCantidad,
         disminuirCantidad,
+        borrarCarrito,
         totalCarrito
       }}
     >
