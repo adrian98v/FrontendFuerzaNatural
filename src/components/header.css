@@ -63,6 +63,8 @@ nav a:hover {
   font-weight: bold;
   transition: background 0.3s ease;
   white-space: nowrap; /* Evita que se corte en pantallas chicas */
+  cursor: pointer;
+  border: none;
 }
 
 .login-btn:hover {
@@ -70,7 +72,12 @@ nav a:hover {
 }
 .carrito-btn{
   background-color: #da9f32;
-  
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
 }
 .carrito-btn:hover{
   background-color: #b98324;
@@ -93,6 +100,7 @@ nav a:hover {
 
 .carrito-item {
   margin-bottom: 10px;
+  
 }
 
 .carrito-controles {
@@ -100,10 +108,22 @@ nav a:hover {
   align-items: center;
   gap: 8px;
   margin-top: 4px;
+  text-decoration: none;
+  
 }
 
 .carrito-controles button {
   padding: 4px 8px;
+  background-color: #da9f32;
+  background-color: #da9f32;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  
+  
 }
 
 
