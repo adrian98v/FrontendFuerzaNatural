@@ -9,9 +9,11 @@ import {AdminHeader} from "./admin_panel/admin-header.jsx"
 import Checkout from "./Pages/Checkout.jsx";
 import { useState, useEffect, createContext } from "react";
 import axios from "axios";
-
+import { Signup } from "./Pages/Signup.jsx";
+import { AdminSignup } from "./Pages/admin-signup.jsx";
 
 export const DataContext = createContext()
+
 
 
 function App() {
@@ -43,18 +45,21 @@ function App() {
       
       <Routes>
 
+      <Route path="/admin-signup" element={
+        <AdminSignup></AdminSignup>
+          
+      }></Route>
 
-      <Route path="/" element={
-        <>
-        <AdminHeader></AdminHeader>
-        
-        </>
-      } />
-
-<Route path='/admin-Stock' element={
+      <Route path='/' element={
         <><AdminHeader></AdminHeader>
         < STOCK/></>}
       />
+
+      <Route path='/admin-stock' element={
+        <><AdminHeader></AdminHeader>
+        < STOCK/></>}
+      />
+
 
         <Route
           path="/login" element={
@@ -78,7 +83,7 @@ function App() {
 
       <Route path="/eventos" element={<Eventos />} />
 
-
+      <Route path="/signup" element={<Signup />} />
      
 
       {/* <Route path='/contacto' element={<Contacto />} /> */}

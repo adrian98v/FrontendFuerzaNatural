@@ -26,8 +26,9 @@ export const AdminHeader = () => {
 
 
 
-
     return(<div className="admin_header">
+        
+
         <div className="admin_stock_container">
             <a href="/admin-stock">Stock</a>
         </div>
@@ -40,8 +41,12 @@ export const AdminHeader = () => {
             <a href="/admin-pedidos">Pedidos</a>
         </div>
 
-        <button className="login-btn" onClick={user ? handleLogout : () => navigate("/login")}>
-        {user ? "Cerrar Sesión" : "Iniciar Sesión"}
+        <button className="admin_account_button" onClick={user ? handleLogout : () => navigate("/admin-signup")}>
+        Nueva cuenta
+        </button>
+
+        <button className="admin-login-btn" onClick={user ? handleLogout : () => navigate("/login")}>
+        Cerrar Sesión
         </button>
 
     </div>)

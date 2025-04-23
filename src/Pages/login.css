@@ -16,12 +16,13 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    height: 60%;
+    height: 72%;
+    align-items: center;
   }
   
   .title {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0px;
     color: #333;
   }
   
@@ -42,6 +43,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: background 0.3s ease;
+    width: 100%;
   }
   
   .btn:hover {
@@ -60,4 +62,23 @@
   .a_logo{
     margin: 0 auto;
 
+  }
+
+
+  .signup_button{
+    background-color: #928e84;
+    color: rgb(247, 247, 247);
+    border: none;
+    padding: 0.50rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40%;
+    max-width: 300px;
+    transition: background-color 0.1s ease-in;
+  }
+
+
+  .signup_button:hover{
+    background-color: #817d73;
   }

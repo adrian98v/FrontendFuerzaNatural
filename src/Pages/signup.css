@@ -1,0 +1,12 @@
+
+.signup-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f4f8;
+}
+
+.label_message{
+    color: rgb(151, 2, 2);
+    font-size: medium;
+}
