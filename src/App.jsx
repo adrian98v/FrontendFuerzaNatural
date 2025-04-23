@@ -7,13 +7,69 @@ import Eventos from "./Pages/Eventos.jsx";
 import { CarritoProvider } from "./context/CarritoContext";
 
 import {AdminHeader} from "./admin_panel/admin-header.jsx"
+import { useState, useEffect, createContext } from "react";
+import axios from "axios";
+
+
+export const DataContext = createContext()
 
 
 function App() {
+  
   console.log("corriendo en app");
+
+  const [user, setUser] = useState(null)
+
+  useEffect(()=>{
+
+    async function verificarSesion(){
+
+      const result = await axios.get('http://localhost:3000/userCheck', {withCredentials: true})
+
+      if(result.data.user){setUser(result.data.user)}
+      console.log(result.data.user)
+    }
+
+    verificarSesion()
+    
+    
+  }, [])
+
+
+
   return (
+    <DataContext.Provider value={{user, setUser}}>
+      {user && user.is_admin === 1 ? 
+      
+      <Routes>
+
+
+      <Route path="/" element={
+        <>
+        <AdminHeader></AdminHeader>
+        
+        </>
+      } />
+
+      <Route path='/Admin-Stock' element={
+        <><AdminHeader></AdminHeader>
+        < STOCK/></>}
+      />
+
+        <Route
+          path="/login" element={
+          <>
+            <Login />
+          </>
+        }
+        />
+    </Routes> 
+    
+    :   // si el usuario no es admin entonces aparece lo siguiente
+  
+
     <CarritoProvider>
-    <Routes>
+      <Routes>
       <Route
         path="/login"
         element={
@@ -36,21 +92,18 @@ function App() {
       <Route path="/eventos" element={<Eventos />} />
 
 
-      <Route path="/admin" element={
-        <>
-        <AdminHeader></AdminHeader>
-        
-        </>
-      } />
 
       {/* <Route path='/contacto' element={<Contacto />} /> */}
       {/* <Route path='*' element={<NotFound />} /> */}
 
-      <Route path='/Admin-Stock' element={
-        <>< STOCK/></>}
-      />
+      
     </Routes>
     </CarritoProvider>
+    
+    }
+
+    </DataContext.Provider>
+    
   );
 }
 

@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./header.css";
 import logo from "../assets/Logo_SinFondo_MásChico.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { DataContext } from '../App.jsx'
 import { useCarrito } from "../context/CarritoContext";
 
 
 const Header = () => {
 
-  const [user, setUser] = useState(null)
+  const {user, setUser} = useContext(DataContext)
+
   const navigate = useNavigate();
 
   async function handleLogout() {
