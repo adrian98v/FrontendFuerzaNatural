@@ -51,7 +51,7 @@ function App() {
         </>
       } />
 
-      <Route path='/admin-Stock' element={
+<Route path='/admin-Stock' element={
         <><AdminHeader></AdminHeader>
         < STOCK/></>}
       />
@@ -79,14 +79,14 @@ function App() {
       <Route path="/eventos" element={<Eventos />} />
 
 
-      <Route path="/admin" element={<><AdminHeader></AdminHeader></>} />
+     
 
       {/* <Route path='/contacto' element={<Contacto />} /> */}
       {/* <Route path='*' element={<NotFound />} /> */}
 
         <Route path='/Checkout' element={<><Checkout/></>}/> 
         
-      <Route path='/Admin-Stock' element={<>< STOCK/></>}/>
+      
     </Routes>
     </CarritoProvider>
     
