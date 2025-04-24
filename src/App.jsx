@@ -11,6 +11,7 @@ import { useState, useEffect, createContext, useContext } from "react";
 import axios from "axios";
 import { Signup } from "./Pages/Signup.jsx";
 import { AdminSignup } from "./Pages/Admin-signup.jsx";
+import { Clientes } from "./admin_panel/admin-clientes.jsx";
 
 export const DataContext = createContext()
 
@@ -42,10 +43,16 @@ function App() {
 
   return (
     <DataContext.Provider value={{user, setUser}}>
-      {user && user.is_admin === 1 ? 
+      {user && user.is_admin == 1 ? 
       
       <Routes>
 
+      <Route path="/admin-clientes" element={<>
+        <AdminHeader></AdminHeader>
+        <Clientes></Clientes>
+      </>    
+      }></Route>
+        
       <Route path="/admin-signup" element={
         <AdminSignup></AdminSignup>
           
