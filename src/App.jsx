@@ -7,7 +7,7 @@ import Eventos from "./Pages/Eventos.jsx";
 import { CarritoProvider } from "./context/CarritoContext";
 import {AdminHeader} from "./admin_panel/admin-header.jsx"
 import Checkout from "./Pages/Checkout.jsx";
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import axios from "axios";
 import { Signup } from "./Pages/Signup.jsx";
 import { AdminSignup } from "./Pages/Admin-signup.jsx";
@@ -15,6 +15,7 @@ import { AdminSignup } from "./Pages/Admin-signup.jsx";
 export const DataContext = createContext()
 
 
+export const useUserContext = () => useContext(DataContext);
 
 function App() {
   

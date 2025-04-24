@@ -77,7 +77,7 @@
     flex: 1;
     min-width: 340px;
     transition: transform 0.3s ease;
-    border-right: #e9ad3d 2px solid;
+    border-right: #e9ad3d71 2px solid;
 }
 
 .checkout-form:hover {
@@ -121,7 +121,7 @@
 .form-group input {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
+    
     border-radius: 8px;
     font-size: 15px;
     background-color: white;
@@ -183,7 +183,7 @@
 .input-icon-wrapper {
     display: flex;
     align-items: center;
-    background-color: white;
+    background-color: rgb(223, 220, 220);
     border-radius: 10px;
     padding: 8px 12px;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -193,17 +193,17 @@
 
 .input-icon-wrapper svg {
     margin-right: 8px;
-    color: #555;
+    color: #313030;
 }
 
-.input-icon-wrapper input {
-    border: none;
+/* .input-icon-wrapper input {
+    border: #000000 1px solid;
     outline: none;
     flex-grow: 1;
     font-size: 16px;
     background: transparent;
     color: #333;
-}
+} */
 
 .login-links {
     font-size: 14px;
