@@ -20,7 +20,6 @@ export const useUserContext = () => useContext(DataContext);
 
 function App() {
   
-  console.log("corriendo en app");
 
   const [user, setUser] = useState(null)
 
@@ -31,7 +30,7 @@ function App() {
       const result = await axios.get('http://localhost:3000/userCheck', {withCredentials: true})
 
       if(result.data.user){setUser(result.data.user)}
-      console.log(result.data.user)
+
     }
 
     verificarSesion()
