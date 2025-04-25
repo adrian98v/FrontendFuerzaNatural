@@ -29,10 +29,21 @@ export function Clientes() {
         // Cargar los clientes
         axios.get("http://localhost:3000/admin/clientes", { withCredentials: true })
             .then(res => {
-                setClientes(res.data.clientes)
+                const unicosPorNumero = [];
+                const numerosVistos = new Set();
+    
+                for (const cliente of res.data.clientes) {
+                    if (!numerosVistos.has(cliente.numero)) {
+                        numerosVistos.add(cliente.numero);
+                        unicosPorNumero.push(cliente);
+                    }
+                }
+    
+                setClientes(unicosPorNumero);
             })
             .catch(err => console.error(err));
     }, []);
+    
 
     const handlePopupOpen = () => {
     if (numeroEliminar === '') {
@@ -72,7 +83,7 @@ export function Clientes() {
                             </>
                         ) : (
                             <>
-                                <label>Estas por eliminar un usuario registrado.<br /><br />¿Deseas continuar?</label>
+                                <label>Está por eliminar un usuario registrado.<br /><br />¿Desea continuar?</label>
                                 <div className="popup_button_container">
                                     <button onClick={handleDelete}>Eliminar</button>
                                     <button onClick={() => setPopUp(false)}>Cancelar</button>
