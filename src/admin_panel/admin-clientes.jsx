@@ -126,20 +126,19 @@ export function Clientes() {
                             </tr>
                         </thead>
                         <tbody>
-                            {clientes.map((cliente) => {
-                                if (cliente.numero.includes(numero))
-                                    return (
-                                        <tr key={cliente.nombre}>
-                                            <td className="td_name">{cliente.nombre}</td>
-                                            <td className={(!cliente.email) ? "td_email" : undefined}>
-                                                {cliente.email ? cliente.email : "email no encontrado"}
-                                            </td>
-                                            <td>{cliente.numero}</td>
-                                            <td>{cliente.registrado ? "Registrado" : "No registrado"}</td>
-                                        </tr>
-                                    )
-                            })}
-                        </tbody>
+                            {clientes.filter(cliente => cliente.numero.includes(numero)) // primero filtro
+                                .map(cliente => ( // después hace el map
+                                <tr key={cliente.nombre}>
+                                    <td className="td_name">{cliente.nombre}</td>
+                                    <td className={!cliente.email ? "td_email" : undefined}>
+                                    {cliente.email ? cliente.email : "email no encontrado"}
+                                    </td>
+                                    <td>{cliente.numero}</td>
+                                    <td>{cliente.registrado ? "Registrado" : "No registrado"}</td>
+                                </tr>
+                                ))}
+                            </tbody>
+
                     </table>
                 </div>
 
