@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
   const [email, setEmail] = useState('');
   const [contrasenia, setPassword] = useState('');
+  const [message, setMessage] = useState('')
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -23,7 +24,8 @@ function Login() {
       navigate('/'); // redirige al home
 
     } catch (error) {
-      console.error('Error al iniciar sesión:', error);
+      const message = error.response.data.message;
+      setMessage(message)
     }
   };
 
@@ -53,6 +55,8 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+
+        {message.length > 0 && <label className='login_label_message'>{message}</label>}
 
         <button type="submit" className="btn">
           Ingresar

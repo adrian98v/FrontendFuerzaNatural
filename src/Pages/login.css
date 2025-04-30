@@ -82,3 +82,9 @@
   .signup_button:hover{
     background-color: #817d73;
   }
+
+
+.login_label_message{
+    color: rgb(172, 2, 2);
+    font-size: medium;
+}
