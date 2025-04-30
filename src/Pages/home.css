@@ -1,10 +1,10 @@
-/* Reset */
+/* home.css */
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Rubik", sans-serif;
-  background-color: #d4aa82;
+  background-color: #b28e6d;
 }
 
 /* Aplicación */
@@ -18,22 +18,19 @@ body {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  
-  
 }
 
 .background-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
+
   position: absolute;
   z-index: -1;
   background: transparent;
   top: 0;
   filter: brightness(50%);
 }
-
 
 /* Contenido sobre la imagen */
 .content {
@@ -45,19 +42,19 @@ body {
 }
 
 .small-title {
-  color: #ffce49;
-  font-size: 2.7rem;
+  color: #bd9938;
+  font-size: 2.4rem;
   margin: 0;
   font-weight: 700;
 }
 
 .large-title {
-  color: #fffaf0;
-  font-size: 3.8rem;
+  color: #b5b1a9;
+  font-size: 3rem;
   margin: 10px 0;
   font-weight: 800;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-  max-width: 80%;
+  max-width: 95%;
 }
 
 /* Botones */
@@ -75,46 +72,39 @@ body {
   cursor: pointer;
   border-radius: 12px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(227, 7, 7, 0.2);
 }
 
-.catalog-button {
-  background-color: #ff9500;
-  color: white;
-}
-
-.catalog-button:hover {
-  background-color: #ffa62b;  
-  transform: scale(1.05);
-}
-
+.catalog-button,
 .about-button {
-  background-color: transparent;
-  color: #ffce49;
-  border: 1px solid #ffce49;
+  background-color: #b28e6d73;
+  color: #b5b1a9;
 }
 
+.catalog-button:hover,
 .about-button:hover {
-  background-color: #ffffff1a;
+  background-color: #1e1d1d1a;
   transform: scale(1.05);
 }
 
 /* Sección Carrusel + Texto */
 .carousel-text-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 700px;
   padding: 50px 100px;
-  background-color: #1d1c1c;
+  background-color: #b28e6d49;
   gap: 50px;
   flex-wrap: wrap;
-  margin-left: 9em;
-  margin-right: 9em;
+  margin-left: 3em;
+  margin-right: 3em;
   box-shadow: 0px 5px 50px rgb(0, 0, 0);
-  margin-top: 10px;
+  top: 5px;
+  margin-top: 0px;
   margin-bottom: 15px;
- 
+  border-radius: 30px;
 }
 
 /* Carrusel */
@@ -170,7 +160,7 @@ body {
 
 .carousel-buttons button {
   pointer-events: all;
-  background: rgba(48, 48, 47, 0.884);
+  background: rgba(48, 47, 47, 0.884);
   color: #ffffff;
   font-size: 2rem;
   border: none;
@@ -188,7 +178,7 @@ body {
 /* Texto al lado del carrusel */
 .carousel-text {
   width: 45%;
-  
+
   text-align: left;
 }
 
@@ -199,13 +189,160 @@ body {
   font-weight: bold;
   max-width: 1000px;
   border: 1px;
-  
-
 }
 
 .carousel-text p {
   font-size: 1.5rem;
   color: #ccc;
   line-height: 1.6;
-  
+}
+
+/* SVG Wave dentro de la imagen */
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* altura del SVG */
+  line-height: 0; /* quita espacios extra */
+  z-index: 0; /* sobre la imagen (-1), pero bajo el contenido */
+}
+
+.wave-container svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* eleva tu contenido sobre el wave */
+.content {
+  position: absolute; /* ya lo tienes */
+  z-index: 1;
+}
+
+/* Si tu sección siguiente tiene margin-top grande, elimínalo o reduce: */
+.carousel-text-container {
+  margin-top: 0; /* o un valor pequeño para que el wave encaje justo */
+}
+
+/* Sección de servicios (3 cols) */
+.services-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  flex: 1 1 calc(33.333% - 30px); /* 3 columnas responsive */
+  text-align: center;
+}
+
+.service-card img {
+  width: 100%;
+  height: 300px; /* o auto, según tu diseño */
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+}
+
+.service-card h4 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  color: #51421a;
+}
+
+.service-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+/* Sección de servicios (3 cols) */
+.services-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* o center, según prefieras */
+  flex-wrap: wrap;
+  padding: 50px 100px;
+  background-color: #b28e6d49;
+  gap: 30px; /* mismo gap que antes */
+  margin: 0 3em 15px; /* equivale a margin-left/right + margin-bottom */
+  box-shadow: 0px 5px 50px rgba(19, 19, 19, 0.712);
+  border-radius: 30px;
+}
+
+/* (Y conserva el resto de estilos de .service-card) */
+.service-card {
+  flex: 1 1 calc(33.333% - 30px);
+  text-align: center;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+
+/* Wrapper de toda la sección */
+.services-section {
+  margin: 0 3em 15px; /* mismos márgenes laterales y bottom */
+}
+
+/* Header centrado */
+.services-header {
+  text-align: center;
+  margin-bottom: 2rem; /* separa del contenedor de tarjetas */
+}
+
+.services-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #51421a;
+  margin: 0;
+}
+
+.services-header hr {
+  width: 80px; /* ancho de la línea */
+  height: 3px; /* grosor */
+  background-color: #55461b;
+  border: none;
+  margin: 0.5rem auto; /* centrado + separación */
+}
+
+/* Contenedor de tarjetas (hereda tu antiguo carousel-text-container) */
+.services-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 50px 100px;
+  background-color: #b28e6d49;
+  gap: 30px;
+  box-shadow: 0px 5px 50px rgb(0, 0, 0);
+  border-radius: 30px;
+}
+
+/* Las cards siguen igual */
+.service-card {
+  flex: 1 1 calc(33.333% - 30px);
+  text-align: center;
+}
+
+.service-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+}
+
+.service-card h4 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  color: #51421a;
+}
+
+.service-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
 }

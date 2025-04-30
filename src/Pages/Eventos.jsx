@@ -1,6 +1,7 @@
 // src/Pages/Eventos.jsx
 import React from "react";
 import Header from "../components/header.jsx";
+import Footer from "../components/footer.jsx";
 import Contacto from "../components/Contacto.jsx";
 import "./Eventos.css";
 
@@ -19,6 +20,7 @@ const Eventos = () => {
       <div className="container my-5">
         <Contacto />
       </div>
+      <Footer />
     </div>
   );
 };

@@ -11,7 +11,7 @@
 }
 
 .topbar a {
-  color: #da9f32;
+  color: #bd9938;
   font-weight: 500;
   text-decoration: underline;
 }
@@ -42,7 +42,7 @@ nav {
 }
 
 nav a {
-  color: #f4c84c;
+  color: #9e8130;
   text-decoration: none;
   font-weight: bold;
   font-family: "Rubik", sans-serif;
@@ -55,8 +55,8 @@ nav a:hover {
 
 /* ==== Botón Iniciar Sesión ==== */
 .login-btn {
-  background-color: #da9f32;
-  color: #fff;
+  background-color: #9e81306d;
+  color: #98958e;
   padding: 10px 20px;
   border-radius: 6px;
   text-decoration: none;
@@ -66,7 +66,8 @@ nav a:hover {
 }
 
 .login-btn:hover {
-  background-color: #b98324;
+  background-color: #1e1d1d1a;
+  transform: scale(1.05);
 }
 
 /* ==== Responsivo para pantallas chicas ==== */

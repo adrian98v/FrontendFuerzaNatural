@@ -1,0 +1,49 @@
+.footer {
+  width: 100%;
+  background: rgba(106, 85, 65, 0.8);
+  padding: 12px 3vw;
+  box-sizing: border-box;
+
+  /* espacio por encima para que no choque con la sección previa */
+  margin-top: 40px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Centro: Copyright */
+.footer-center p {
+  margin: 0;
+  color: #b5b1a9;
+  font-size: 0.9rem;
+}
+
+/* Derecha: iconos */
+.footer-right a {
+  margin-left: 16px;
+  color: #b5b1a9;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-right a:hover {
+  color: #ffffff;
+}
+
+/* Adaptación móvil */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-right a {
+    margin-left: 8px;
+    font-size: 1.5rem;
+  }
+}

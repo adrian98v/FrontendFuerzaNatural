@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import './home.css';
-import Header from '../components/header.jsx'; // Importa el componente Header
+//  Home.jsx
+
+import React, { useEffect, useState } from "react";
+import "./home.css";
+import Header from "../components/header.jsx"; // Importa el componente Header
+import Footer from "../components/footer.jsx";
+
 import Fondo from "../assets/ROLLS_CANELA_VIVO.jpg";
+import Fondo1 from "../assets/FONDO-PRUEBA-HOME.jpeg";
 import Imagen1 from "../assets/MASA_CRUDA.jpg";
 import Imagen2 from "../assets/MEDIALUNA_MITAD.jpg";
 import Imagen3 from "../assets/PUBLI.jpg";
@@ -9,24 +14,8 @@ import Imagen3 from "../assets/PUBLI.jpg";
 function Home() {
   const [index, setIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  
 
   const images = [Imagen1, Imagen2, Imagen3];
-
-  const texts = [
-    {
-      title: "¿Qué es la masa madre?",
-      text: "La masa madre es un fermento natural hecho a base de harina y agua, sin aditivos. Gracias a una fermentación lenta y controlada, da origen a panes más sabrosos, nutritivos y duraderos."
-    },
-    {
-      title: "¿Qué aporta a la panadería?",
-      text: "La masa madre mejora la textura, el aroma y el sabor del pan. Además, hace que sea más fácil de digerir, con una miga suave, una corteza crujiente y un perfil nutricional superior."
-    },
-    {
-      title: "¿Quiénes somos?",
-      text: "En Fuerza Natural elaboramos cada pan con dedicación y respeto por los procesos artesanales. Creemos en la fuerza de lo natural, en los ingredientes simples y en el sabor real del pan tradicional."
-    }
-  ];
 
   useEffect(() => {
     if (isHovered) return;
@@ -37,7 +26,6 @@ function Home() {
 
     return () => clearInterval(interval);
   }, [isHovered, images.length]);
-
 
   const handlePrev = () => {
     setIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
@@ -51,45 +39,85 @@ function Home() {
     <div className="App">
       <div className="fondo">
         <Header />
-        <img src={Fondo} alt="Fondo" className="background-image" />
+
+        <img src={Fondo1} alt="Fondo" className="background-image" />
+
+        {/* —— SVG Wave dentro de .fondo —— */}
+        <div className="wave-container">
+          <svg
+            viewBox="0 0 1440 100"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,40 C360,180 720,-40 1440,40 L1440,100 L0,100 Z"
+              fill="#b28e6d"
+            />
+          </svg>
+        </div>
+        {/* ————————————— */}
+
         <div className="content">
-          <h1 className="small-title">PANIFICADOS DELICIOSOS</h1>
-          <h2 className="large-title">El rey de los desayunos y merienda</h2>
+          <h1 className="large-title">
+            Panaderia Artesanal y Almacen Organico
+          </h1>
+          <h2 className="small-title">
+            Alimentos 100% reales para una alimentacion conciente
+          </h2>
           <div className="buttons">
             <button className="catalog-button">Ver Catálogo</button>
             <button className="about-button">Más Sobre Nosotros</button>
           </div>
         </div>
       </div>
+      {/* Sección de servicios en 3 columnas */}
+      <div className="services-section">
+        {/* Header centrado */}
+        <div className="services-header">
+          <h2>Un poco sobre nosotros</h2>
+          <hr />
+        </div>
 
-      {/* Carrusel con texto */}
-      <div className="carousel-text-container">
-        <div
-          className="carousel-container"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          <div className="carousel">
-            {images.map((img, i) => (
-              <div className={`slide ${index === i ? "active" : ""}`} key={i}>
-                <img src={img} alt={`Slide ${i}`} />
-              </div>
-            ))}
-            <div className="carousel-buttons">
-              <button className="prev" onClick={handlePrev}>‹</button>
-              <button className="next" onClick={handleNext}>›</button>
-            </div>
+        {/* 3 columnas */}
+        <div className="services-container">
+          {/* Tarjeta 1 */}
+          <div className="service-card">
+            <img src={Imagen1} alt="Nuestra Materia Prima" />
+            <h4>Nuestra Materia Prima</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua...
+            </p>
           </div>
 
-        
-          
-        </div>
+          {/* Tarjeta 2 */}
+          <div className="service-card">
+            <img src={Imagen2} alt="Nuestros Productos" />
+            <h4>Nuestros Productos</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua...
+            </p>
+          </div>
 
-        <div className="carousel-text">
-          <h2>{texts[index].title}</h2>
-          <p>{texts[index].text}</p>
+          {/* Tarjeta 3 */}
+          <div className="service-card">
+            <img src={Imagen3} alt="Nuestros Procesos" />
+            <h4>Nuestros Procesos</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua...
+            </p>
+          </div>
         </div>
       </div>
+      <Footer />;
     </div>
   );
 }

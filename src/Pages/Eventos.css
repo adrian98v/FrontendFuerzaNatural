@@ -1,7 +1,7 @@
 /* src/Pages/Eventos.css */
 
 .eventos-container {
-  background-color: #ebe3db;
+  background-color: #ebdbdb;
   color: #4b3621;
   font-family: "Helvetica Neue", sans-serif;
 }
@@ -10,8 +10,8 @@
   text-align: center;
   padding: 4rem 2rem;
   background-image: linear-gradient(
-      rgba(205, 198, 191, 0.732),
-      rgba(255, 252, 240, 0.85)
+      rgba(205, 194, 191, 0.347),
+      rgba(255, 252, 240, 0.312)
     ),
     url("../assets/Home_Fondo.jpg");
   background-size: cover;
