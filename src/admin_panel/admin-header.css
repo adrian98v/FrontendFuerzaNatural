@@ -1,0 +1,53 @@
+.admin_header{
+    display: flex;
+    justify-content: space-evenly;
+    height: 4em;
+    align-items: center;
+    background-color: #e7e7e7;
+    min-width: 700px;
+}
+
+
+
+.admin_header div a{
+    text-decoration: none;
+    color: rgb(19, 19, 19);
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.admin_header div a:hover{
+    border-bottom: 1px solid black;
+}
+
+.admin-login-btn {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.267)
+}
+
+.admin-login-btn:hover {
+    background-color: #f1f1f1;
+  }
+
+
+.admin_account_button{
+    background-color: #e9e9e93f;
+    color: #242424;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight:600;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.267)
+}
+
+.admin_account_button:hover{
+    background-color: #a8a8a875;
+    
+}

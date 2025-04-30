@@ -10,6 +10,8 @@ body {
 /* Aplicación */
 .App {
   font-weight: 100;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
 }
 
 /* Fondo con imagen */
@@ -85,6 +87,12 @@ body {
 .about-button:hover {
   background-color: #1e1d1d1a;
   transform: scale(1.05);
+}
+
+.fondo2 {
+  background-color: #d4aa82;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 /* Sección Carrusel + Texto */

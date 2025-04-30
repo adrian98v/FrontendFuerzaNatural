@@ -63,12 +63,70 @@ nav a:hover {
   font-weight: bold;
   transition: background 0.3s ease;
   white-space: nowrap; /* Evita que se corte en pantallas chicas */
+  cursor: pointer;
+  border: none;
 }
 
 .login-btn:hover {
   background-color: #1e1d1d1a;
   transform: scale(1.05);
 }
+.carrito-btn{
+  background-color: #da9f32;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+}
+.carrito-btn:hover{
+  background-color: #b98324;
+}
+
+.carrito-popup {
+  position: absolute;
+  top: 90px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+
+.carrito-item {
+  margin-bottom: 10px;
+  
+}
+
+.carrito-controles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  text-decoration: none;
+  
+}
+
+.carrito-controles button {
+  padding: 4px 8px;
+  background-color: #da9f32;
+  background-color: #da9f32;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  
+  
+}
+
 
 /* ==== Responsivo para pantallas chicas ==== */
 @media (max-width: 768px) {

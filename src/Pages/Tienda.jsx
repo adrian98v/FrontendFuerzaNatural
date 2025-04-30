@@ -2,18 +2,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Tienda.css";
-import Header from "../components/header.jsx"; // Importa el componente Header
+import Header from "../components/header.jsx";
 import Fondo from "../assets/PAN_RODAJAS2_VIVA.webp";
+import { useCarrito } from "../context/CarritoContext.jsx"; // ⬅️ Importar
 
 const Tienda = () => {
   const [categorias, setCategorias] = useState([]);
   const [productos, setProductos] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
-  const [carrito, setCarrito] = useState([]);
+  const { agregarAlCarrito } = useCarrito(); // ⬅️ Usar
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/categorias")
+      .get("http://localhost:3000/Categorias")
       .then((res) => setCategorias(res.data));
   }, []);
 
@@ -24,11 +25,6 @@ const Tienda = () => {
 
     axios.get(url).then((res) => setProductos(res.data));
   }, [categoriaSeleccionada]);
-
-  const agregarAlCarrito = (producto) => {
-    setCarrito((prev) => [...prev, producto]);
-    alert(`${producto.nombre} agregado al carrito`);
-  };
 
   return (
     <div className="tienda">
