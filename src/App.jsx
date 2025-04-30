@@ -12,6 +12,7 @@ import axios from "axios";
 import { Signup } from "./Pages/Signup.jsx";
 import { AdminSignup } from "./Pages/Admin-signup.jsx";
 import { Clientes } from "./admin_panel/admin-clientes.jsx";
+import PedidosList from "./admin_panel/admin-pedidos.jsx";
 
 export const DataContext = createContext()
 
@@ -67,6 +68,9 @@ function App() {
         < STOCK/></>}
       />
 
+      <Route path="/admin-pedidos" element={<>
+        <AdminHeader></AdminHeader>
+      <PedidosList></PedidosList></>}/>
 
         <Route
           path="/login" element={
@@ -82,6 +86,8 @@ function App() {
 
     <CarritoProvider>
     <Routes>
+
+
       <Route path="/login" element={<><Login /></>}/>
       
       <Route path="/"element={<><Home /></>}/>
