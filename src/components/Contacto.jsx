@@ -19,10 +19,10 @@ const Contacto = () => {
 
     emailjs
       .sendForm(
-        "service_nwhuvwo", // --> aca reemplazar con SERVICE_ID
-        "template_os2vx0q", // ---> aca reemplazar con TEMPLATE_ID
+        "service_nwhuvwo", // -->  SERVICE_ID
+        "template_os2vx0q", // ---> TEMPLATE_ID
         form.current,
-        "jBnTZTm65NDjEj3ZO" // ---> aca reemplazar con PUBLIC_KEY
+        "jBnTZTm65NDjEj3ZO" // --->  PUBLIC_KEY
       )
       .then(
         (result) => {
@@ -55,7 +55,7 @@ const Contacto = () => {
         <div
           className="info-item d-flex"
           data-aos="fade-up"
-          data-aos-delay="400"
+          data-aos-delay="350"
         >
           <i className="bi bi-clock flex-shrink-0"></i>
           <div>
@@ -71,7 +71,7 @@ const Contacto = () => {
         <div
           className="info-item d-flex"
           data-aos="fade-up"
-          data-aos-delay="500"
+          data-aos-delay="400"
         >
           <i className="bi bi-telephone flex-shrink-0"></i>
           <div>

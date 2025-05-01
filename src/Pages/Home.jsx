@@ -5,7 +5,6 @@ import "./home.css";
 import Header from "../components/header.jsx"; // Importa el componente Header
 import Footer from "../components/footer.jsx";
 
-import Fondo from "../assets/ROLLS_CANELA_VIVO.jpg";
 import Fondo1 from "../assets/FONDO-PRUEBA-HOME.jpeg";
 import Imagen1 from "../assets/MASA_CRUDA.jpg";
 import Imagen2 from "../assets/MEDIALUNA_MITAD.jpg";

@@ -1,31 +1,27 @@
 /* src/Pages/Eventos.css */
 
-.eventos-container {
-  background-color: #ebdbdb;
-  color: #4b3621;
-  font-family: "Helvetica Neue", sans-serif;
+/* Hero específico de Eventos */
+.eventos-fondo {
+  height: 45vh; /* ajusta altura imagen */
 }
 
-.eventos-hero {
-  text-align: center;
-  padding: 4rem 2rem;
-  background-image: linear-gradient(
-      rgba(205, 194, 191, 0.347),
-      rgba(255, 252, 240, 0.312)
-    ),
-    url("../assets/Home_Fondo.jpg");
-  background-size: cover;
-  background-position: center;
-  border-bottom: 2px solid #e0c9a6;
+.eventos-fondo .background-image {
+  opacity: 0.7; /* transparencia de la imagen */
 }
 
-.eventos-hero h1 {
+/*textos del hero */
+.eventos-content h1 {
   font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  color: #bd9938; /* color del texto */
 }
 
-.eventos-hero p {
+.eventos-content p {
   font-size: 1.2rem;
-  color: #5a4636;
+  font-weight: bold;
+  color: #bd9938; /* color del texto */
+}
+
+/* separación bajo el hero */
+.eventos-contact {
+  margin-top: 1rem;
 }
