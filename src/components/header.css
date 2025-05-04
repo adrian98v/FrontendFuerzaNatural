@@ -42,7 +42,7 @@ nav {
 }
 
 nav a {
-  color: #9e8130;
+  color: #d3a72e;
   text-decoration: none;
   font-weight: bold;
   font-family: "Rubik", sans-serif;
@@ -55,7 +55,7 @@ nav a:hover {
 
 /* ==== Botón Iniciar Sesión ==== */
 .login-btn {
-  background-color: #9e81306d;
+  background-color: #a8872d9c;
   color: #98958e;
   padding: 10px 20px;
   border-radius: 6px;

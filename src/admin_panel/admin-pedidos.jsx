@@ -10,7 +10,7 @@ const PedidosList = () => {
     const fetchPedidos = async () => {
       try {
         const response = await axios.get("http://localhost:3000/pedidos/detalles");
-
+ 
         // Ordenamos los pedidos por fecha descendente
         const pedidosOrdenados = response.data.sort((a, b) => {
           return new Date(b.fecha_pedido) - new Date(a.fecha_pedido);

@@ -126,7 +126,8 @@ export function Clientes() {
                             </tr>
                         </thead>
                         <tbody>
-                            {clientes.filter(cliente => cliente.numero.includes(numero)) // primero filtro
+                            {/* {clientes.filter(cliente => cliente.numero.includes(numero)) // primero filtro */}
+                            {clientes.filter(cliente => cliente.numero == numero || numero == '') // primero filtro
                                 .map(cliente => ( // después hace el map
                                 <tr key={cliente.nombre}>
                                     <td className="td_name">{cliente.nombre}</td>
