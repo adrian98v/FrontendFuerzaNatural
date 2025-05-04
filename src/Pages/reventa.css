@@ -1,0 +1,27 @@
+/* src/Pages/Eventos.css */
+
+/* Hero específico de Eventos */
+.reventa-fondo {
+  height: 45vh; /* ajusta altura imagen */
+}
+
+.reventa-fondo .background-image {
+  opacity: 0.7; /* transparencia de la imagen */
+}
+
+/*textos del hero */
+.reventa-content h1 {
+  font-size: 3rem;
+  color: #bd9938; /* color del texto */
+}
+
+.reventa-content p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #bd9938; /* color del texto */
+}
+
+/* separación bajo el hero */
+.reventa-contact {
+  margin-top: 1rem;
+}

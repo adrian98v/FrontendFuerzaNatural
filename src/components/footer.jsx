@@ -9,7 +9,7 @@ const Footer = () => {
         {/* Sección central: Copyright */}
         <div className="footer-center">
           <p>
-            © {new Date().getFullYear()} Desarollado por Burgos, Veppo y
+            © {new Date().getFullYear()} Desarrollado por Burgos, Veppo y
             Villacorta. Todos los derechos reservados.
           </p>
         </div>

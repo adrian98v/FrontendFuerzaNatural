@@ -4,8 +4,10 @@ import Home from "./Pages/Home.jsx";
 import { Routes, Route } from "react-router-dom";
 import Tienda from "./Pages/Tienda.jsx";
 import Eventos from "./Pages/Eventos.jsx";
+import About from "./Pages/About.jsx";
+import Reventa from "./Pages/Reventa.jsx";
 import { CarritoProvider } from "./context/CarritoContext";
-import {AdminHeader} from "./admin_panel/admin-header.jsx"
+import { AdminHeader } from "./admin_panel/admin-header.jsx";
 import Checkout from "./Pages/Checkout.jsx";
 import { useState, useEffect, createContext, useContext } from "react";
 import axios from "axios";
@@ -14,104 +16,133 @@ import { AdminSignup } from "./Pages/Admin-signup.jsx";
 import { Clientes } from "./admin_panel/admin-clientes.jsx";
 import PedidosList from "./admin_panel/admin-pedidos.jsx";
 
-export const DataContext = createContext()
-
+export const DataContext = createContext();
 
 export const useUserContext = () => useContext(DataContext);
 
 function App() {
-  
+  const [user, setUser] = useState(null);
 
-  const [user, setUser] = useState(null)
+  useEffect(() => {
+    async function verificarSesion() {
+      const result = await axios.get("http://localhost:3000/userCheck", {
+        withCredentials: true,
+      });
 
-  useEffect(()=>{
-
-    async function verificarSesion(){
-
-      const result = await axios.get('http://localhost:3000/userCheck', {withCredentials: true})
-
-      if(result.data.user){setUser(result.data.user)}
-
+      if (result.data.user) {
+        setUser(result.data.user);
+      }
     }
 
-    verificarSesion()
-    
-    
-  }, [])
-
-
+    verificarSesion();
+  }, []);
 
   return (
-    <DataContext.Provider value={{user, setUser}}>
-      {user && user.is_admin == 1 ? 
-      
-      <Routes>
+    <DataContext.Provider value={{ user, setUser }}>
+      {user && user.is_admin == 1 ? (
+        <Routes>
+          <Route
+            path="/admin-clientes"
+            element={
+              <>
+                <AdminHeader></AdminHeader>
+                <Clientes></Clientes>
+              </>
+            }
+          ></Route>
 
-      <Route path="/admin-clientes" element={<>
-        <AdminHeader></AdminHeader>
-        <Clientes></Clientes>
-      </>    
-      }></Route>
-        
-      <Route path="/admin-signup" element={
-        <AdminSignup></AdminSignup>
-          
-      }></Route>
+          <Route
+            path="/admin-signup"
+            element={<AdminSignup></AdminSignup>}
+          ></Route>
 
-      <Route path='/' element={
-        <><AdminHeader></AdminHeader>
-        < STOCK/></>}
-      />
+          <Route
+            path="/"
+            element={
+              <>
+                <AdminHeader></AdminHeader>
+                <STOCK />
+              </>
+            }
+          />
 
-      <Route path='/admin-stock' element={
-        <><AdminHeader></AdminHeader>
-        < STOCK/></>}
-      />
+          <Route
+            path="/admin-stock"
+            element={
+              <>
+                <AdminHeader></AdminHeader>
+                <STOCK />
+              </>
+            }
+          />
 
-      <Route path="/admin-pedidos" element={<>
-        <AdminHeader></AdminHeader>
-      <PedidosList></PedidosList></>}/>
+          <Route
+            path="/admin-pedidos"
+            element={
+              <>
+                <AdminHeader></AdminHeader>
+                <PedidosList></PedidosList>
+              </>
+            }
+          />
 
-        <Route
-          path="/login" element={
-          <>
-            <Login />
-          </>
-        }
-        />
-    </Routes> 
-    
-    :   // si el usuario no es admin entonces aparece lo siguiente
-  
+          <Route
+            path="/login"
+            element={
+              <>
+                <Login />
+              </>
+            }
+          />
+        </Routes>
+      ) : (
+        // si el usuario no es admin entonces aparece lo siguiente
 
-    <CarritoProvider>
-    <Routes>
+        <CarritoProvider>
+          <Routes>
+            <Route
+              path="/login"
+              element={
+                <>
+                  <Login />
+                </>
+              }
+            />
 
+            <Route
+              path="/"
+              element={
+                <>
+                  <Home />
+                </>
+              }
+            />
 
-      <Route path="/login" element={<><Login /></>}/>
-      
-      <Route path="/"element={<><Home /></>}/>
+            <Route path="/catalogo" element={<Tienda />} />
 
-      <Route path="/catalogo" element={<Tienda />} />
+            <Route path="/eventos" element={<Eventos />} />
 
-      <Route path="/eventos" element={<Eventos />} />
+            <Route path="/about" element={<About />} />
 
-      <Route path="/signup" element={<Signup />} />
-     
+            <Route path="/reventa" element={<Reventa />} />
 
-      {/* <Route path='/contacto' element={<Contacto />} /> */}
-      {/* <Route path='*' element={<NotFound />} /> */}
+            <Route path="/signup" element={<Signup />} />
 
-        <Route path='/Checkout' element={<><Checkout/></>}/> 
-        
-      
-    </Routes>
-    </CarritoProvider>
-    
-    }
+            {/* <Route path='/contacto' element={<Contacto />} /> */}
+            {/* <Route path='*' element={<NotFound />} /> */}
 
+            <Route
+              path="/Checkout"
+              element={
+                <>
+                  <Checkout />
+                </>
+              }
+            />
+          </Routes>
+        </CarritoProvider>
+      )}
     </DataContext.Provider>
-    
   );
 }
 

@@ -1,0 +1,152 @@
+/* about.css */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  background-color: #b28e6d;
+}
+
+.App {
+  font-weight: 100;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+/* Hero idéntico al de Eventos/Home */
+.fondo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+  z-index: -1;
+}
+
+/* Contenedor para centrar tu nuevo texto */
+.about-hero-content {
+  position: absolute;
+  top: 50%; /* centro vertical */
+  left: 50%; /* centro horizontal */
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  color: #fff;
+}
+
+/* Título con líneas laterales */
+.about-hero-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.about-hero-title hr {
+  flex: 1;
+  height: 2px;
+  border: none;
+  background-color: #ffffff;
+  max-width: 100px; /* longitud de la línea */
+}
+.about-hero-title h1 {
+  font-size: 3rem; /* tamaño titulo */
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* subtitulo,  poco más grande */
+.about-hero-subtitle {
+  font-size: 2rem; /* tamaño subtitulo */
+  margin: 0;
+  color: #bd9938; /* color subtitulo */
+}
+
+/* ——------------——— Overview Section ———-------------—— */
+.overview-section {
+  background-color: #b28e6d;
+  padding: 4rem 3em;
+}
+
+.overview-header {
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+.overview-header h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 0;
+  color: #51421a;
+}
+.overview-header hr {
+  width: 80px;
+  height: 2px;
+  background-color: #ccc;
+  border: none;
+  margin: 0.5rem auto 1rem;
+}
+.overview-header p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Tarjetas con icono dentro de rombo */
+.overview-items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.overview-item {
+  flex: 1 1 calc(33.333% - 2rem);
+  text-align: center;
+}
+
+.icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #ccc;
+  transform: rotate(45deg);
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-wrapper svg {
+  transform: rotate(-45deg);
+  font-size: 1.8rem;
+  color: #ff9500;
+}
+
+.overview-item h3 {
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+  color: #51421a;
+  text-transform: uppercase;
+}
+
+.overview-item p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* controla altura de imagen solo en About */
+.about-fondo {
+  height: 79vh; /* altura de imagen */
+}
+
+.about-fondo .background-image {
+  opacity: 0.7; /* misma transparencia que imagen de Eventos.jsx */
+}

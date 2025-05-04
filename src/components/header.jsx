@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./header.css";
-import logo from "../assets/Logo_SinFondo_MásChico.png";
+import logo from "../assets/LOGO COLOR ALTERNATIVO- MAS CHICO.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "../App.jsx";
@@ -60,7 +60,7 @@ const Header = () => {
       {!user && (
         <div className="topbar">
           <p>
-            ¡Registrate y obtené un 20% de descuento en tu primera compra!!!{" "}
+            ¡Registrate y obtené un 10% de descuento en tu primera compra!!!{" "}
             <a href="/login">Registrate ahora</a>
           </p>
         </div>
@@ -73,8 +73,8 @@ const Header = () => {
         <nav>
           <a href="/">Inicio</a>
           <a href="/catalogo">Tienda</a>
-          <a href="/about">Nosotros</a>
-          <a href="/contacto">Contacto</a>
+          <a href="/About">Nosotros</a>
+          <a href="/reventa">Reventa</a>
           <a href="/eventos">Eventos</a>
         </nav>
 

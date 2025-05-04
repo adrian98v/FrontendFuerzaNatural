@@ -64,8 +64,12 @@ function Home() {
             Alimentos 100% reales para una alimentacion conciente
           </h2>
           <div className="buttons">
-            <button className="catalog-button">Ver Catálogo</button>
-            <button className="about-button">Más Sobre Nosotros</button>
+            <a href="/catalogo">
+              <button className="catalog-button">Ver Catálogo</button>
+            </a>
+            <a href="/about">
+              <button className="about-button">Más Sobre Nosotros</button>
+            </a>
           </div>
         </div>
       </div>
@@ -73,7 +77,7 @@ function Home() {
       <div className="services-section">
         {/* Header centrado */}
         <div className="services-header">
-          <h2>Un poco sobre nosotros</h2>
+          <h2>Algunas de nuestras creaciones estrellas</h2>
           <hr />
         </div>
 
@@ -82,7 +86,7 @@ function Home() {
           {/* Tarjeta 1 */}
           <div className="service-card">
             <img src={Imagen1} alt="Nuestra Materia Prima" />
-            <h4>Nuestra Materia Prima</h4>
+            <h4>Pan de Campo </h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem
@@ -94,7 +98,7 @@ function Home() {
           {/* Tarjeta 2 */}
           <div className="service-card">
             <img src={Imagen2} alt="Nuestros Productos" />
-            <h4>Nuestros Productos</h4>
+            <h4>Facturas</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem
@@ -106,7 +110,7 @@ function Home() {
           {/* Tarjeta 3 */}
           <div className="service-card">
             <img src={Imagen3} alt="Nuestros Procesos" />
-            <h4>Nuestros Procesos</h4>
+            <h4>Los mejores ingredientes</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem
