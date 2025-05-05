@@ -72,16 +72,18 @@ nav a:hover {
   transform: scale(1.05);
 }
 .carrito-btn{
-  background-color: #da9f32;
+  background-color: #a8872d9c;
   color: white;
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.9rem;
   padding: 0.4rem 0.8rem;
   border: none;
+  transition: 0.3s ease;
 }
 .carrito-btn:hover{
-  background-color: #b98324;
+  background-color: #1e1d1d1a;
+  transform: scale(1.05);
 }
 
 .carrito-popup {

@@ -19,6 +19,7 @@
   background-repeat: repeat;
   background-attachment: fixed;
   filter: brightness(35%);
+  filter: opacity(0.5);
   z-index: -1;
 }
 
@@ -32,7 +33,7 @@
   margin-top: 3rem;
   margin-bottom: 0rem;
   filter: opacity(99%);
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: #b28e6d;
   border-radius: 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   justify-content: center;
@@ -61,7 +62,7 @@
   box-shadow: 0px 0px 3px rgb(0, 0, 0);
   padding: 1rem;
   border-radius: 10px;
-  background-color: #f7f5f0;
+  background-color: #f2d2b4;
 }
 .titulo-categorias {
   font-size: 1.5rem;
@@ -71,7 +72,7 @@
   text-align: center;
 }
 .categorias button {
-  background-color: #eee;
+  background-color: #c59d48;
   border: none;
   padding: 0.6rem 1rem;
   cursor: pointer;
@@ -80,7 +81,7 @@
   transition: background-color 0.3s;
   text-align: left;
   margin: 0.3rem 0;
-  color: #a56715;
+  color: #ffffff;
 }
 
 .categorias button:hover {
@@ -88,7 +89,7 @@
 }
 
 .categorias .activo {
-  background-color: #e2a41f;
+  background-color: #f3af1e;
   color: white;
 }
 
@@ -113,7 +114,7 @@
 }
 
 .producto-card {
-  background-color: #fffaf4;
+  background-color: #f2d2b4;
   border: 1px solid #e8ddd2;
   border-radius: 10px;
   overflow: hidden;
