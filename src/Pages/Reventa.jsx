@@ -15,10 +15,10 @@ const Reventa = () => {
         <img src={Fondo1} alt="Fondo Eventos" className="background-image" />
 
         <div className="content reventa-content">
-          <h1>Queres re-vender nuestros productos??</h1>
+          <h1>¿Queres re-vender nuestros productos?</h1>
           <p>
-            Queremos asesorarte de la mejor manera para comercializar nuestros
-            productos!!!!!
+            ¡Queremos asesorarte de la mejor manera para comercializar nuestros
+            productos!
           </p>
         </div>
       </div>
