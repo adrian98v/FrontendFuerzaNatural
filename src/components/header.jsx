@@ -8,7 +8,17 @@ import { useCarrito } from "../context/CarritoContext";
 
 const Header = () => {
   const { user, setUser } = useContext(DataContext);
+  const [menuLateralAbierto, setMenuLateralAbierto] = useState(false);
 
+  const toggleMenuLateral = () => {
+    setMenuLateralAbierto(!menuLateralAbierto);
+  };
+  
+  const irAPedidos = () => {
+    navigate("/pedidos-user");
+    setMenuLateralAbierto(false);
+  };
+  
   const navigate = useNavigate();
 
   async function handleLogout() {
@@ -21,6 +31,7 @@ const Header = () => {
 
       setUser(null);
       navigate("/");
+      toggleMenuLateral();
     } catch (error) {
       console.error("Error al cerrar sesión:", error);
     }
@@ -77,17 +88,25 @@ const Header = () => {
           <a href="/reventa">Reventa</a>
           <a href="/eventos">Eventos</a>
         </nav>
+        {!user && (
+          <button
+            className="login-btn"
+            onClick={() => navigate("/login")}
+          >
+            Iniciar Sesión
+          </button>
+        )}
 
-        <button
-          className="login-btn"
-          onClick={user ? handleLogout : () => navigate("/login")}
-        >
-          {user ? "Cerrar Sesión" : "Iniciar Sesión"}
-        </button>
 
         <button className="carrito-btn" onClick={toggleCarrito}>
           🛒 ({cantidadTotal})
         </button>
+        {user && (
+  <button className="menu-lateral-btn" onClick={toggleMenuLateral}>
+    ☰
+  </button>
+)}
+
       </header>
 
       {mostrarCarrito && (
@@ -134,6 +153,21 @@ const Header = () => {
           </p>
         </div>
       )}
+      
+      {menuLateralAbierto && (
+  <div className="menu-lateral">
+    <button className="cerrar-menu" onClick={toggleMenuLateral}>✕</button>
+    <ul>
+      <li>
+        <button onClick={irAPedidos}>📦 Historial de pedidos</button>
+      </li>
+      <li>
+        <button onClick={handleLogout}>🚪 Cerrar sesión</button>
+      </li>
+    </ul>
+  </div>
+)}
+
     </>
   );
 };

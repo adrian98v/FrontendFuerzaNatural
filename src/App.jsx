@@ -15,6 +15,7 @@ import { Signup } from "./Pages/Signup.jsx";
 import { AdminSignup } from "./Pages/Admin-signup.jsx";
 import { Clientes } from "./admin_panel/admin-clientes.jsx";
 import PedidosList from "./admin_panel/admin-pedidos.jsx";
+import PedidosUsuario from "./Pages/Pedidos_usuario.jsx";
 
 export const DataContext = createContext();
 
@@ -117,7 +118,7 @@ function App() {
                 </>
               }
             />
-
+            {user &&(<Route path="/pedidos-user" element={<PedidosUsuario/>}></Route>) }
             <Route path="/catalogo" element={<Tienda />} />
 
             <Route path="/eventos" element={<Eventos />} />

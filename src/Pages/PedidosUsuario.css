@@ -1,0 +1,68 @@
+.pedidos-usuario {
+    padding-bottom: 2rem;
+    
+    
+    min-height: 100vh;
+}
+
+.pedidos-container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+}
+
+.lista-pedidos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pedido-card {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.pedido-card button {
+    margin-top: 0.5rem;
+    background-color: #a57c30;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pedido-card button:hover {
+    background-color: #fca543;
+}
+
+.productos {
+    margin-top: 1rem;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    border: #02030588 1px solid;
+}
+
+.productos ul {
+    list-style-type: disc;
+    margin: 0;
+    padding: 5px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.info {
+    color: #666;
+    font-style: italic;
+}
