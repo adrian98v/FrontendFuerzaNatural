@@ -126,7 +126,7 @@ const Contacto = () => {
             </button>
           </div>
           {enviado && (
-            <p className="mt-3" style={{ color: "#28a745" }}>
+            <p className="mt-3" style={{ color: "#fffff" }}>
               ¡Mensaje enviado con éxito!
             </p>
           )}

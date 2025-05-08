@@ -55,7 +55,7 @@ const Tienda = () => {
 
         <div className="productos-container">
           <h1 className="titulo-tienda">Tienda de Panadería</h1>
-          <div className="productos">
+          <div className="productos1">
             {productos.map((prod) => (
               <div key={prod.ID_Producto} className="producto-card">
                 <img
