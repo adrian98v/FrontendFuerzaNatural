@@ -3,44 +3,42 @@ import logo from '../assets/Logo_SinFondo_MásChico.png';
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LoadingButton from '@mui/material/Button';
 
 
-function Login() {
+
+function PasswordRequest() {
   const [email, setEmail] = useState('');
-  const [contrasenia, setPassword] = useState('');
+  const [flagButton, setFlagButton] = useState(false)
   const [message, setMessage] = useState('')
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleRequest = async (e) => {
     e.preventDefault(); 
 
+    setFlagButton(true)
     try {
-      const response = await axios.post('http://localhost:3000/login', {
-        email,
-        contrasenia
-      }, {withCredentials: true});
 
+      const response = await axios.post('http://localhost:3000/reset/password', {email});
 
-      navigate('/'); // redirige al home
+      navigate('/email-confirmation'); // redirige a la pagina de confirmación de envio de email
 
     } catch (error) {
       const message = error.response.data.message;
       setMessage(message)
     }
   };
-
-
   
 
 
   return (
     <div className="login-container">
-      <form className="form" onSubmit={handleLogin}>
+      <form className="form" onSubmit={handleRequest}>
         <a className="a_logo" href="/">
           <img src={logo} alt="Logo" className="Logo" />
         </a>
 
-        <h2 className="title">Iniciar Sesión</h2>
+        <h2 className="title">Generación de contraseña</h2>
 
         <input
           type="email"
@@ -51,24 +49,28 @@ function Login() {
           required
         />
 
-        <input
-          type="password"
-          placeholder="Contraseña"
-          className="input"
-          value={contrasenia}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        
 
         {message.length > 0 && <label className='login_label_message'>{message}</label>}
 
+        {flagButton ? 
+        <LoadingButton
+          loading={flagButton}
+          size="large"
+          className='loading_button'
+          variant="contained"
+          color="black"
+          fullWidth
+        ></LoadingButton>
+        
+        :
+
         <button type="submit" className="btn">
-          Ingresar
+          Solicitar nueva contraseña
         </button>
 
-        <button type='button' className='login_button_reset_password' onClick={()=>{navigate('/password_request')}}>Olvidé mi contraseña</button>
-
-        <button type='button' className='signup_button' onClick={()=>{navigate('/signup')}}>Registrarse</button>
+      }
+        
       </form>
 
       
@@ -76,4 +78,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default PasswordRequest;

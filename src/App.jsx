@@ -16,6 +16,11 @@ import { AdminSignup } from "./Pages/Admin-signup.jsx";
 import { Clientes } from "./admin_panel/admin-clientes.jsx";
 import PedidosList from "./admin_panel/admin-pedidos.jsx";
 import PedidosUsuario from "./Pages/Pedidos_usuario.jsx";
+import PasswordRequest from "./Pages/Password-request.jsx"
+import {ResetPassword} from "./Pages/Reset-password.jsx"
+import {ResetConfirmation} from "./Pages/Reset-confirmation.jsx"
+
+
 
 export const DataContext = createContext();
 
@@ -128,6 +133,13 @@ function App() {
             <Route path="/reventa" element={<Reventa />} />
 
             <Route path="/signup" element={<Signup />} />
+
+            <Route path="/password_request" element={<PasswordRequest />} />
+            
+            <Route path="/email-confirmation" element={<ResetConfirmation />} />
+
+            <Route path="/reset-password/:token" element={<ResetPassword />} />
+
 
             {/* <Route path='/contacto' element={<Contacto />} /> */}
             {/* <Route path='*' element={<NotFound />} /> */}
