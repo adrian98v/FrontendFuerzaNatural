@@ -17,6 +17,7 @@ function PasswordRequest() {
     e.preventDefault(); 
 
     setFlagButton(true)
+
     try {
 
       const response = await axios.post('http://localhost:3000/reset/password', {email});
@@ -25,6 +26,7 @@ function PasswordRequest() {
 
     } catch (error) {
       const message = error.response.data.message;
+      setFlagButton(false)
       setMessage(message)
     }
   };
