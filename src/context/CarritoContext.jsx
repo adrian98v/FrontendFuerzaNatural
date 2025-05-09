@@ -7,6 +7,7 @@ export const useCarrito = () => useContext(CarritoContext);
 export const CarritoProvider = ({ children }) => {
   const [carrito, setCarrito] = useState(() => {
     const carritoGuardado = localStorage.getItem('carrito');
+    
     return carritoGuardado ? JSON.parse(carritoGuardado) : [];
   });
 

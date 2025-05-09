@@ -11,6 +11,7 @@ const Tienda = () => {
   const [productos, setProductos] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
   const { agregarAlCarrito } = useCarrito(); // ⬅️ Usar
+  const [mensajeAgregado, setMensajeAgregado] = useState(false);
 
   useEffect(() => {
     axios
@@ -26,9 +27,22 @@ const Tienda = () => {
     axios.get(url).then((res) => setProductos(res.data));
   }, [categoriaSeleccionada]);
 
-  return (
-    <div className="tienda">
+  const manejarAgregarAlCarrito = (producto) => {
+  agregarAlCarrito(producto);
+  setMensajeAgregado(true);
+  setTimeout(() => {
+    setMensajeAgregado(false);
+  }, 2000); // El mensaje desaparece después de 2 segundos
+};
+
+return (
+  <div className="tienda">
       <Header className="tienda-header"></Header>
+      {mensajeAgregado && (
+  <div className="notificacion-agregado">
+      ✅ Producto agregado al carrito
+    </div>
+  )}
 
       <div className="tienda-container">
         <div className="categorias">
@@ -69,7 +83,8 @@ const Tienda = () => {
                   <p className="precio">${prod.precio}</p>
                   <button
                     className="btn-agregar"
-                    onClick={() => agregarAlCarrito(prod)}
+                    onClick={() => manejarAgregarAlCarrito(prod)}
+
                   >
                     Agregar al carrito
                   </button>
