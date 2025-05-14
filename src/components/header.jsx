@@ -145,8 +145,6 @@ const Header = () => {
         }
 
         
-
-
         <button className="carrito-btn" onClick={toggleCarrito}>
           🛒 ({cantidadTotal})
         </button>
@@ -210,8 +208,8 @@ const Header = () => {
         </div>
       )}
       
-      {menuLateralAbierto && (
-  <div className="menu-lateral">
+      
+  <div className={menuLateralAbierto ? "menu-lateral": "menu-lateral-oculto"}>
     <button className="cerrar-menu" onClick={toggleMenuLateral}>✕</button>
     
     <ul>
@@ -234,9 +232,7 @@ const Header = () => {
       </li>
     </ul>
   </div>
-)}
-
-    </>
+</>
   );
 };
 
