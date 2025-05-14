@@ -35,13 +35,19 @@ header {
 }
 
 /* ==== Navegación ==== */
-nav {
-  display: flex;
+.header_options {
+  
+  display: none;
   gap: 20px;
-  margin-left: 600px; /* Empuja los enlaces hacia la derecha */
+
 }
 
-nav a {
+.header_options.activo{
+  display: flex;
+  gap: 20px;
+}
+
+.header_options a {
   color: #d3a72e;
   text-decoration: none;
   font-weight: bold;
@@ -49,15 +55,15 @@ nav a {
   transition: color 0.3s ease;
 }
 
-nav a:hover {
+.header_options a:hover {
   color: #ffffff;
 }
 
 /* ==== Botón Iniciar Sesión ==== */
 .login-btn {
-  background-color: #a8872d9c;
-  color: #98958e;
-  padding: 10px 20px;
+  background-color: #cfa6349c;
+  color: #dad8d8;
+  padding: 9px 18px;
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
@@ -72,7 +78,7 @@ nav a:hover {
   transform: scale(1.05);
 }
 .carrito-btn{
-  background-color: #a8872d9c;
+  background-color: #cfa6349c;
   color: white;
   border-radius: 6px;
   cursor: pointer;
@@ -81,9 +87,13 @@ nav a:hover {
   border: none;
   transition: 0.3s ease;
 }
-.carrito-btn:hover{
+.carrito-btn:active{
   background-color: #1e1d1d1a;
   transform: scale(1.05);
+}
+
+.carrito-btn:hover{
+  background-color: #cfa6349c;
 }
 
 .carrito-popup {
@@ -96,7 +106,7 @@ nav a:hover {
   background: white;
   border: 1px solid #ccc;
   padding: 15px;
-  z-index: 100;
+  z-index: 10;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   border-radius: 8px;
 }
@@ -118,7 +128,6 @@ nav a:hover {
 .carrito-controles button {
   padding: 4px 8px;
   background-color: #da9f32;
-  background-color: #da9f32;
   color: white;
   border-radius: 6px;
   cursor: pointer;
@@ -129,20 +138,15 @@ nav a:hover {
   
 }
 
+.btn_login_carrito_container{
+  display: flex;
+  align-items: center;
+  gap:20px;
+}
 
-.menu-lateral-btn {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  margin-left: 1rem;
-  cursor: pointer;
-  color: #ffffff;
-  transition: background-color 0.3s, transform 0.3s;
-}
-.menu-lateral-btn:hover {
-  background-color: #d3a72e;
-  transform: scale(1.1);
-}
+
+
+
 
 .menu-lateral {
   position: fixed;
@@ -150,9 +154,9 @@ nav a:hover {
   right: 0;
   width: 260px;
   height: 100vh;
-  background-color: white;
+  background-color: rgb(221, 221, 221);
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  z-index: 10;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -188,13 +192,18 @@ nav a:hover {
   font-size: 1rem;
   text-align: left;
   transition: background-color 0.3s;
+  width: 100%;
+  text-align:justify;
 }
+
 
 .menu-lateral li button:hover {
   background-color: #fca543;
 }
 .menu-lateral li{
-  background-color: #ffffff;
+  background-color: rgb(221, 221, 221);
+  border: none;
+  margin-bottom: 5px;
 }
 
 .cerrar-menu {
@@ -206,25 +215,163 @@ nav a:hover {
   transition: 0.3s ease;
 }
 .cerrar-menu:hover {
-  background-color: #d3a72e;
+  background-color: #c29929;
 }
 
+.drop_down_menu_button{
+  display: none;
+
+}
+
+.drop_down_menu_button:hover{
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+
+.drop_down_menu_button_with_user{
+  display: none;
+}
+
+.nav_container_menu_lateral{
+  overflow: hidden;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.header_options_menu_lateral{
+ display: flex;
+  flex-direction: column;
+ height: 100%;
+ justify-content: space-evenly;
+ position: relative;
+ z-index: 500;
+ background-color: grey;
+ border-radius: 5px;
+}
+
+
+.header_options_menu_lateral a{
+  text-decoration: none;      
+  height: 40px;
+  color: #d3a72e;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Rubik", sans-serif;
+  background-color: rgb(49, 49, 49);
+  transition: color 0.3s ease;
+  padding: 18px 0px 2px 15px ; 
+}
+
+
+.header_options_menu_lateral a:hover{
+  color: white;
+}
+
+.logout_button_header{
+
+  background-color: #a57c30d0;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: left;
+
+}
+
+.logout_button_header:hover{
+  background-color: #a57c30d0;
+}
 
 /* ==== Responsivo para pantallas chicas ==== */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
+@media (max-width: 800px) {
 
-  nav {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
+    .header_options{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-evenly;
+      position: relative;
+      z-index: 500;
+    }
 
-  .login-btn {
-    align-self: flex-end;
-  }
+    .header_options a{
+      height: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 550;
+      
+      /* border-bottom: 1px solid black; */
+    }
+
+    .header_options.activo{
+      display: none;
+    }
+
+    .nav_container{
+      position: absolute;
+      right: 0px;
+      top: 78px;
+      height: 0px;
+      padding: 10px 0px;
+      overflow: hidden;
+      transition: height 0.5s ease;
+      width: 100vw;
+      z-index: 999;
+      border-top: 1px solid black;
+      
+    }
+
+    .nav_container.visible{
+      height: 60vh;
+      
+      background: rgba(22, 22, 22, 0.973);
+      backdrop-filter: blur(10px);
+      z-index: 600;
+      border-bottom: 1px solid rgba(20, 20, 20, 0.466);
+    }
+
+    .drop_down_menu_button{
+      display: block;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      font-size: 30px;
+      color: #dfaf2c;
+    }
+
+    .drop_down_menu_button_with_user{
+      display: block;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      font-size: 16px;
+      color: white;
+      background-color: #cfa6349c;
+      padding: 8px;
+      border-radius: 7px;
+      transition: background 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+      position:absolute;
+      z-index: 700;
+      left: 45vw;
+      
+    }
+
+    .drop_down_menu_button_with_user:active{
+      background-color: #cfa63400;
+      transform: scale(1.05);
+    }
+
+    .drop_down_menu_button_with_user:hover{
+      background-color: #cfa6349c;
+    }
+
+    
 }
 
+@media (max-width: 600px){
+  .drop_down_menu_button_with_user{
+    left: 43%;
+  }
+}

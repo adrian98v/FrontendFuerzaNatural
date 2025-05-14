@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext} from "react";
 import "./header.css";
 import logo from "../assets/LOGO COLOR ALTERNATIVO- MAS CHICO.png";
 import axios from "axios";
@@ -9,6 +9,10 @@ import { useCarrito } from "../context/CarritoContext";
 const Header = () => {
   const { user, setUser } = useContext(DataContext);
   const [menuLateralAbierto, setMenuLateralAbierto] = useState(false);
+  const [menuResponsive, setMenuResponsive] = useState(true)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [anchoPantalla, setAnchoPantalla] = useState(0);
+
 
   const toggleMenuLateral = () => {
     setMenuLateralAbierto(!menuLateralAbierto);
@@ -31,11 +35,20 @@ const Header = () => {
 
       setUser(null);
       navigate("/");
-      toggleMenuLateral();
+      setMenuLateralAbierto(false);
     } catch (error) {
       console.error("Error al cerrar sesión:", error);
     }
   }
+
+
+  function handleResponsiveMenu(){
+    
+    setMenuResponsive(!menuResponsive)
+
+    setMenuOpen(!menuOpen)
+  }
+
 
   useEffect(() => {
     async function verificarSesion() {
@@ -49,7 +62,28 @@ const Header = () => {
     }
 
     verificarSesion();
+
+
   }, []);
+
+
+  useEffect(()=>{
+    document.querySelector(".nav_container").classList.toggle("visible")
+  }, [menuResponsive])
+
+ 
+
+  useEffect(() => {
+    const manejarResize = () => {
+      setAnchoPantalla(window.innerWidth);
+    };
+
+    window.addEventListener("resize", manejarResize);
+
+
+  }, []);
+
+
 
   const {
     carrito,
@@ -81,31 +115,53 @@ const Header = () => {
         <a href="/">
           <img src={logo} alt="Logo" className="logo" />
         </a>
-        <nav>
-          <a href="/">Inicio</a>
-          <a href="/catalogo">Tienda</a>
-          <a href="/About">Nosotros</a>
-          <a href="/reventa">Reventa</a>
-          <a href="/eventos">Eventos</a>
-        </nav>
-        {!user && (
+        
+      
+        <div className="btn_login_carrito_container">
+
+          
+          <div className='nav_container'>
+            <nav className={`header_options ${menuResponsive ? 'activo' : ''}`}>
+            <a href="/">Inicio</a>
+            <a href="/catalogo">Tienda</a>
+            <a href="/About">Nosotros</a>
+            <a href="/reventa">Reventa</a>
+            <a href="/eventos">Eventos</a>
+          </nav>
+          </div>
+        
+
+
+          {!user && (
           <button
             className="login-btn"
-            onClick={() => navigate("/login")}
-          >
+            onClick={() => navigate("/login")}>
             Iniciar Sesión
           </button>
         )}
+
+        {anchoPantalla > 800 && user &&
+          <button className="logout_button_header" onClick={handleLogout} >Cerrar sesión</button>
+        }
+
+        
 
 
         <button className="carrito-btn" onClick={toggleCarrito}>
           🛒 ({cantidadTotal})
         </button>
+
+        {!user && 
+          <button className="drop_down_menu_button" onClick={handleResponsiveMenu}>☰</button>
+        }
+
         {user && (
-  <button className="menu-lateral-btn" onClick={toggleMenuLateral}>
-    ☰
-  </button>
-)}
+        <button className="drop_down_menu_button" onClick={toggleMenuLateral}>
+          ☰
+        </button>)}
+
+        </div>
+        
 
       </header>
 
@@ -157,7 +213,19 @@ const Header = () => {
       {menuLateralAbierto && (
   <div className="menu-lateral">
     <button className="cerrar-menu" onClick={toggleMenuLateral}>✕</button>
+    
     <ul>
+      <li>
+        <div className='nav_container_menu_lateral'>
+        <nav className={`header_options_menu_lateral ${menuResponsive ? 'activo' : ''}`}>
+          <a href="/">Inicio</a>
+          <a href="/catalogo">Tienda</a>
+          <a href="/About">Nosotros</a>
+          <a href="/reventa">Reventa</a>
+          <a href="/eventos">Eventos</a>
+        </nav>
+    </div>
+      </li>
       <li>
         <button onClick={irAPedidos}>📦 Historial de pedidos</button>
       </li>
