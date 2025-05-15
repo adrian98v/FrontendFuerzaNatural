@@ -10,7 +10,7 @@ const Header = () => {
   const { user, setUser } = useContext(DataContext);
   const [menuLateralAbierto, setMenuLateralAbierto] = useState(false);
   const [menuResponsive, setMenuResponsive] = useState(true)
-  const [menuOpen, setMenuOpen] = useState(false)
+
   const [anchoPantalla, setAnchoPantalla] = useState(0);
 
 
@@ -43,10 +43,9 @@ const Header = () => {
 
 
   function handleResponsiveMenu(){
-    
+  
     setMenuResponsive(!menuResponsive)
-
-    setMenuOpen(!menuOpen)
+    
   }
 
 
@@ -75,7 +74,10 @@ const Header = () => {
 
   useEffect(() => {
     const manejarResize = () => {
-      setAnchoPantalla(window.innerWidth);
+      const width = window.innerWidth
+      setAnchoPantalla(width);
+
+      if(width > 800)setMenuResponsive(true);
     };
 
     window.addEventListener("resize", manejarResize);
@@ -119,8 +121,10 @@ const Header = () => {
       
         <div className="btn_login_carrito_container">
 
-          
+         
           <div className='nav_container'>
+
+            
             <nav className={`header_options ${menuResponsive ? 'activo' : ''}`}>
             <a href="/">Inicio</a>
             <a href="/catalogo">Tienda</a>
@@ -128,9 +132,13 @@ const Header = () => {
             <a href="/reventa">Reventa</a>
             <a href="/eventos">Eventos</a>
           </nav>
-          </div>
-        
+            
 
+            
+          </div>
+          
+          
+    
 
           {!user && (
           <button
