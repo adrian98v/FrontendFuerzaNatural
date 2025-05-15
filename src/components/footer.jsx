@@ -16,30 +16,16 @@ const Footer = () => {
 
         {/* Sección derecha: iconos sociales */}
         <div className="footer-right">
+         
           <a
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >
-            <FaFacebookF />
-          </a>
-          <a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/fuerzanatural.rcia/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
           >
             <FaInstagram />
           </a>
-          <a
-            href="https://www.linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedinIn />
-          </a>
+          
         </div>
       </div>
     </footer>
