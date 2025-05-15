@@ -3,7 +3,7 @@
 .contacto-container {
   background-color: #b28e6d;
   padding: 2rem;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
   color: #4b3621;
   font-family: "Helvetica Neue", sans-serif;
@@ -13,7 +13,7 @@
   background: #cba37d;
   padding: 1rem;
   margin-bottom: 1.5rem;
-  border-radius: 10px;
+  border-radius: 0px;
   align-items: center;
   gap: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -24,14 +24,55 @@
   color: #a87443;
 }
 
+.contacto-form div{
+  width: 80%;
+}
+
+.contacto-form{
+  width: 80vw;
+}
+
 .contacto-form input,
 .contacto-form textarea {
-  width: 98%;
+  /* width: 98%; */
   padding: 0.75rem;
-  border-radius: 8px;
+  border-radius: 0px;
   background-color: #f2d2b4;
   color: #4b3621;
   font-size: 1rem;
+}
+
+.contacto-container.row.gy-4{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+  max-width: 100vw
+}
+
+.contacto-container.row.gy-4 div{
+  width: 98%;
+  
+}
+
+.contacto-info.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.info-item.d-flex.aos-init.aos-animate{
+  padding: 16px 0px;
+
+}
+
+
+
+.container.eventos-contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contacto-form input:focus,
@@ -54,3 +95,34 @@
 .btn-enviar:hover {
   background-color: #8d6034;
 }
+
+#contacto_info_container_form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vw;
+}
+
+#contacto_info_container{
+  width: 100%;
+  overflow:hidden;
+  object-fit: contain;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contacto_info_container_box{
+  padding: 15px;
+  
+  padding-right: 0px;
+  width: 97%;
+}
+
+
+#nombre, #email, #asunto, #text-area{
+  padding-right: 0px;
+  width: 101%;
+}
+

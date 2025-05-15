@@ -161,7 +161,7 @@ const Header = () => {
           <button className="drop_down_menu_button" onClick={handleResponsiveMenu}>☰</button>
         }
 
-        {user && (
+        {user &&  (
         <button className="drop_down_menu_button" onClick={toggleMenuLateral}>
           ☰
         </button>)}

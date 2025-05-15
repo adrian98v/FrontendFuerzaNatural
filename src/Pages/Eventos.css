@@ -3,25 +3,37 @@
 /* Hero específico de Eventos */
 .eventos-fondo {
   height: 45vh; /* ajusta altura imagen */
+  
+}
+
+.content-eventos-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 110px;
 }
 
 .eventos-fondo .background-image {
-  opacity: 0.7; /* transparencia de la imagen */
+  opacity: 0.8; /* transparencia de la imagen */
+  filter: brightness(.2);
 }
 
 /*textos del hero */
-.eventos-content h1 {
-  font-size: 3rem;
-  color: #bd9938; /* color del texto */
+.content-eventos-content h1 {
+  font-size: 2.8rem;
+  color: #d3a33c; /* color del texto */
 }
 
-.eventos-content p {
-  font-size: 1.2rem;
+.content-eventos-content p {
+  font-size: 1.4rem;
   font-weight: bold;
-  color: #bd9938; /* color del texto */
+  color: #d3a33c; /* color del texto */
+  margin: 5px;
 }
 
 /* separación bajo el hero */
 .eventos-contact {
   margin-top: 1rem;
 }
+
+

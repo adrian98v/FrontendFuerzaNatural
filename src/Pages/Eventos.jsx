@@ -14,12 +14,11 @@ const Eventos = () => {
         <Header />
         <img src={Fondo1} alt="Fondo Eventos" className="background-image" />
 
-        <div className="content eventos-content">
-          <h1>Programemos un Evento Juntos!!!</h1>
-          <p>
-            Contactate con nosotros para programar actividades, degustaciones y
-            más.
-          </p>
+        <div className="content-eventos-content">
+          <h1>¡Programemos un Evento Juntos!</h1>
+          <p>Contactate con nosotros</p> <p>para programar actividades, degustaciones y
+            más.</p>
+
         </div>
       </div>
 

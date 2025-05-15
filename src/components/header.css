@@ -316,6 +316,14 @@ header {
   background-color: #a57c30d0;
 }
 
+.drop_down_menu_button{
+      display: block;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      font-size: 30px;
+      color: #dfaf2c;
+    }
+
 /* ==== Responsivo para pantallas chicas ==== */
 @media (max-width: 800px) {
 
@@ -347,7 +355,7 @@ header {
       height: 0px;
       padding: 0px 0px;
       overflow: hidden;
-      transition: height 0.5s ease;
+      transition: height 0.4s ease;
       width: 100vw;
       
       border-top: 1px solid black;

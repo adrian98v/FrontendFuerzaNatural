@@ -37,7 +37,7 @@ body {
 /* Contenido sobre la imagen */
 .content_div {
   position: absolute;
-  top: 35%;
+  top: 30%;
   left: 5%;
   text-align: left;
   z-index: -1;
