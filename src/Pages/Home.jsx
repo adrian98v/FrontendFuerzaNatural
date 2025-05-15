@@ -58,10 +58,10 @@ function Home() {
 
         <div className="content_div">
           <h1 className="large-title">
-            Panaderia Artesanal y Almacen Organico
+            Panaderia Artesanal y Almacen Orgánico
           </h1>
           <h2 className="small-title">
-            Alimentos 100% reales para una alimentacion conciente
+            Alimentos 100% reales para una alimentación conciente
           </h2>
           <div className="buttons">
             <a href="/catalogo">

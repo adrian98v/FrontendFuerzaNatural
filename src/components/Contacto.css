@@ -114,17 +114,25 @@ border-radius: 12px;
 }
 
 #contacto_info_container_box{
-  padding: 15px;
+  padding: 15px;  
   
   padding-right: 0px;
   width: 96%;
 }
 
+#contacto_info_container_box div{
+text-align: left;  
+}
 
 #nombre, #email, #asunto, #text-area{
   padding-right: 0px;
   width: 100%;
 }
+
+#div_contacto_id p{
+  text-align: left;
+}
+
 
 @media (min-width: 1000px) {
   #nombre, #email, #asunto, #text-area{
