@@ -3,10 +3,10 @@ import React, { useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "./contacto-reventa.css";
+import "./Contacto.css";
 import emailjs from "@emailjs/browser";
 
-const Contactoreventa = () => {
+const Contacto = () => {
   const form = useRef();
   const [enviado, setEnviado] = useState(false);
 
@@ -37,50 +37,53 @@ const Contactoreventa = () => {
   };
 
   return (
-    <div className="contacto-container row gy-4">
+    <div id="contacto_info" className="contacto-container row gy-4">
       {/* Columna Izquierda */}
+      <div id="contacto_info_container" className="col-lg-4 contacto-info">
+      
 
-      {/* Columna Derecha (Formulario) */}
-      <div className="col-lg-8">
-        <form ref={form} onSubmit={sendEmail} className="contacto-form">
-          <div className="row">
-            <div className="col-md-6">
-              <input type="text" name="name" placeholder="Tu Nombre" required />
-            </div>
-            <div className="col-md-6">
+         <form id="contacto_info_container_form" ref={form} onSubmit={sendEmail} className="contacto-form">
+          
+            
+              <input id="nombre" type="text" name="name" placeholder="Nombre" required />
+            
+            
               <input
+                id="email"
                 type="email"
                 name="user_email"
-                placeholder="Tu Email"
+                placeholder="Email"
                 required
               />
-            </div>
-          </div>
-          <div className="mt-3">
-            <input type="text" name="asunto" placeholder="Asunto" required />
-          </div>
-          <div className="mt-3">
-            <textarea
-              name="message"
-              rows="5"
-              placeholder="Mensaje"
-              required
-            ></textarea>
-          </div>
-          <div className="mt-4">
+            
+           
+              <input id="asunto" type="text" name="asunto" placeholder="Asunto" required />
+         
+            
+              <textarea
+                 id="text-area"
+                name="message"
+                rows="5"
+                placeholder="Mensaje"
+                required> </textarea>
+            
+        
             <button type="submit" className="btn-enviar">
               Enviar Mensaje
             </button>
-          </div>
+          
           {enviado && (
-            <p className="mt-3" style={{ color: "#28a745" }}>
+            <p className="mt-3" style={{ color: "#fffff" }}>
               ¡Mensaje enviado con éxito!
             </p>
           )}
         </form>
+
+
       </div>
+      
     </div>
   );
 };
 
-export default Contactoreventa;
+export default Contacto;

@@ -1,27 +1,48 @@
-/* src/Pages/Eventos.css */
 
-/* Hero específico de Eventos */
 .reventa-fondo {
-  height: 45vh; /* ajusta altura imagen */
+  height: 75vh; 
 }
 
 .reventa-fondo .background-image {
-  opacity: 0.7; /* transparencia de la imagen */
+  opacity: 0.8; 
+  filter:brightness(0.2)
 }
 
-/*textos del hero */
 .reventa-content h1 {
   font-size: 3rem;
-  color: #bd9938; /* color del texto */
+  color: #bd9938; 
 }
 
 .reventa-content p {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #bd9938; /* color del texto */
+  color: #bd9938; 
 }
 
-/* separación bajo el hero */
+.content.reventa-content{
+  margin: 95px 60px;
+}
+
+.content.reventa-content h1, p{
+  text-align: center;
+}
+
+
+@media (max-width: 700px) {
+    .content.reventa-content h1{
+      font-size: 2em;
+    }
+
+    .content.reventa-content p{
+      font-size: 1em;
+    }
+}
+
 .reventa-contact {
   margin-top: 1rem;
+}
+
+.container.reventa-contact{
+  display: flex;
+  justify-content: center;
 }
