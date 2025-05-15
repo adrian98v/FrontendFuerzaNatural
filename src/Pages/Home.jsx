@@ -56,7 +56,7 @@ function Home() {
         </div>
         {/* ————————————— */}
 
-        <div className="content">
+        <div className="content_div">
           <h1 className="large-title">
             Panaderia Artesanal y Almacen Organico
           </h1>

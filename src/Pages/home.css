@@ -20,13 +20,13 @@ body {
   width: 100%;
   height: 100vh;
   /* overflow: hidden; */
+  z-index: 0;;
 }
 
 .background-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
   position: absolute;
   z-index: -1;
   background: transparent;
@@ -35,12 +35,12 @@ body {
 }
 
 /* Contenido sobre la imagen */
-.content {
+.content_div {
   position: absolute;
   top: 35%;
   left: 5%;
   text-align: left;
-  z-index: -2;
+  z-index: -1;
 }
 
 .small-title {
@@ -61,10 +61,14 @@ body {
 
 /* Botones */
 .buttons {
+  
   margin-top: 50px;
   display: flex;
+  
   gap: 20px;
 }
+
+
 
 .catalog-button,
 .about-button {
@@ -113,12 +117,6 @@ body {
 }
 
 
-.content {
-  position: absolute; 
-  z-index: -1;
-}
-
-
 .carousel-text-container {
   margin-top: 0; 
 }
@@ -128,7 +126,7 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 30px;
-  flex-wrap: wrap;
+  
 }
 
 .service-card {
@@ -175,23 +173,25 @@ body {
 .service-card {
   flex: 1 1 calc(33.333% - 30px);
   text-align: center;
+  min-width: 220px;
 }
 
 /*-----------------------------------------------------------------------------------------------*/
 
 /* Wrapper de toda la sección */
 .services-section {
-  margin: 0 3em 15px; /* mismos márgenes laterales y bottom */
+  margin: 30px 3em 15px; /* mismos márgenes laterales y bottom */
 }
 
 /* Header centrado */
 .services-header {
   text-align: center;
-  margin-bottom: 2rem; /* separa del contenedor de tarjetas */
+  margin-bottom: 3rem; /* separa del contenedor de tarjetas */
+  
 }
 
 .services-header h2 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: #51421a;
   margin: 0;
@@ -210,7 +210,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap;
+  
   padding: 50px 100px;
   background-color: #b28e6d49;
   gap: 30px;
@@ -243,4 +243,98 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   color: #333;
+}
+
+
+@media (max-width: 900px) {
+
+  .content_div {
+    top: 23%;
+    left: 5%;
+  }
+
+.services-section {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.services-container{
+   margin: 0 20px 15px;
+   padding: 60px 30px;
+}
+
+.service-card{
+  width: 90%;
+}
+}
+
+@media (max-height: 500px) {
+   .content_div {
+    top: 32%;
+    left: 5%;
+  }
+
+  .large-title{
+    font-size: 2.2em;
+  }
+
+  .small-title{
+    font-size: 1.2em;
+  }
+
+  .catalog-button,
+  .about-button{
+    width: 30vw;
+    font-size: 1em;
+  }
+
+  .buttons{
+    margin-top: 15px;
+  }
+
+  .wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px; /* altura del SVG */
+  line-height: 0; /* quita espacios extra */
+  z-index: 0; /* sobre la imagen (-1), pero bajo el contenido */
+}
+
+.wave-container svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+}
+
+@media (max-width: 600px){
+  .large-title{
+    font-size: 2.5em;
+  }
+
+  .small-title{
+    font-size: 1.8em;
+  }
+
+  .buttons{
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .catalog-button,
+  .about-button{
+    width: 90vw;
+    
+    font-size: 1.2em;
+  }
+
+  .wave-container{
+    height: 50px;
+  }
+
+  
 }
