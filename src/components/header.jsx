@@ -43,8 +43,9 @@ const Header = () => {
 
 
   function handleResponsiveMenu(){
-  
-    setMenuResponsive(!menuResponsive)
+    const width = window.innerWidth;
+
+    width < 800 ? setMenuResponsive(!menuResponsive) : setMenuResponsive(true) 
     
   }
 
@@ -157,7 +158,7 @@ const Header = () => {
           🛒 ({cantidadTotal})
         </button>
 
-        {!user && 
+        {!user && anchoPantalla < 800 &&
           <button className="drop_down_menu_button" onClick={handleResponsiveMenu}>☰</button>
         }
 

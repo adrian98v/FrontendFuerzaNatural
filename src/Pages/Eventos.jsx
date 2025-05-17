@@ -15,8 +15,8 @@ const Eventos = () => {
         <img src={Fondo1} alt="Fondo Eventos" className="background-image" />
 
         <div className="content-eventos-content">
-          <h1>¡Programemos un Evento Juntos!</h1>
-          <p>Contactate con nosotros</p> <p>para programar actividades, degustaciones y
+          <h1 id="eventos_text_1">¡Programemos un Evento Juntos!</h1>
+          <p id="eventos_text_2">Contactate con nosotros</p> <p id="eventos_text_2">para programar actividades, degustaciones y
             más.</p>
 
         </div>

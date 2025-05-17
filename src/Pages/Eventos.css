@@ -35,5 +35,28 @@
 .eventos-contact {
   margin-top: 1rem;
 }
+.fondo.eventos-fondo{
+  height: 90vh;
+}
 
+@media (max-width: 700px) {
+  #eventos_text_1 {
+  font-size: 2.3rem;
+  text-align: center;
+  
+}
 
+#eventos_text_2 {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0px;
+}
+
+.content-eventos-content p{
+  margin-top: 0px;
+}
+
+.fondo.eventos-fondo{
+  height: 80vh;
+}
+}

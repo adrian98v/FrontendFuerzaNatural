@@ -47,7 +47,7 @@ const Contacto = () => {
           data-aos-delay="300"
         >
           <i className="bi bi-geo-alt flex-shrink-0"></i>
-          <div>
+          <div id="div_contacto_id">
             <h3>Ubicación</h3>
             <p>Lopez y Planes 717, Resistencia, Chaco, Argentina </p>
           </div>
@@ -60,7 +60,7 @@ const Contacto = () => {
           data-aos-delay="350"
         >
           <i className="bi bi-clock flex-shrink-0"></i>
-          <div>
+          <div id="div_contacto_id">
             <h3>Horarios</h3>
             <p>
               Lunes a Domingo:
@@ -77,7 +77,7 @@ const Contacto = () => {
           data-aos-delay="400"
         >
           <i className="bi bi-telephone flex-shrink-0"></i>
-          <div>
+          <div id="div_contacto_id">
             <h3>Teléfono</h3>
             <p>+54 9 3624 696969</p>
           </div>
@@ -90,7 +90,7 @@ const Contacto = () => {
           data-aos-delay="600"
         >
           <i className="bi bi-envelope flex-shrink-0"></i>
-          <div>
+          <div id="div_contacto_id">
             <h3>Email</h3>
             <p>panaderiafuerzanatural@gmail.com</p>
           </div>

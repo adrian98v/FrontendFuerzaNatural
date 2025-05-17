@@ -26,7 +26,12 @@
     border: 1px solid #ddd;
     border-radius: 6px;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border: #02030588 1px solid;
+    
 }
+
 
 .btn_volverPedir{
     background-color: #ad8b4b;
@@ -50,6 +55,7 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+   
 }
 
 .pedido-card button:hover {
@@ -61,7 +67,7 @@
     padding-left: 1rem;
     display: flex;
     flex-direction: column;
-    border: #02030588 1px solid;
+     
 }
 
 .productos ul {
