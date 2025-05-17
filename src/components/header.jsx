@@ -80,7 +80,7 @@ const Header = () => {
 
       if(width > 800)setMenuResponsive(true);
     };
-
+    manejarResize();
     window.addEventListener("resize", manejarResize);
 
 
@@ -158,7 +158,7 @@ const Header = () => {
           🛒 ({cantidadTotal})
         </button>
 
-        {!user && anchoPantalla < 800 &&
+        { anchoPantalla < 800 && !user && 
           <button className="drop_down_menu_button" onClick={handleResponsiveMenu}>☰</button>
         }
 

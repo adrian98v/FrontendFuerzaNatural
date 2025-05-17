@@ -19,7 +19,7 @@ import PedidosUsuario from "./Pages/Pedidos_usuario.jsx";
 import PasswordRequest from "./Pages/Password-request.jsx"
 import {ResetPassword} from "./Pages/Reset-password.jsx"
 import {ResetConfirmation} from "./Pages/Reset-confirmation.jsx"
-
+import {NewPasswordConfirmation} from "./Pages/NewPassword-Confirmation.jsx"
 
 
 export const DataContext = createContext();
@@ -133,6 +133,8 @@ function App() {
             <Route path="/reventa" element={<Reventa />} />
 
             <Route path="/signup" element={<Signup />} />
+
+            <Route path="/password_confirmation" element={<NewPasswordConfirmation/>} />
 
             <Route path="/password_request" element={<PasswordRequest />} />
             

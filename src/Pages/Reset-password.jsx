@@ -23,13 +23,11 @@ export function ResetPassword() {
         try {
 
             const response = await axios.post('http://localhost:3000/reset/generatePassword', {contrasenia, token});
-
+            navigate("/password_confirmation")
         } catch (error) {
             const message = error.response.data.message;
             setMessage(message)
         }
-    }else{
-        
     }
     
   };
