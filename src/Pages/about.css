@@ -34,11 +34,11 @@ body {
 /* Contenedor para centrar tu nuevo texto */
 .about-hero-content {
   position: absolute;
-  top: 50%; /* centro vertical */
+  top: 55%; /* centro vertical */
   left: 50%; /* centro horizontal */
   transform: translate(-50%, -50%);
   text-align: center;
-  z-index: 1;
+  z-index: -1;
   color: #fff;
 }
 
@@ -144,9 +144,10 @@ body {
 
 /* controla altura de imagen solo en About */
 .about-fondo {
-  height: 79vh; /* altura de imagen */
+  height: 76vh; /* altura de imagen */
 }
 
 .about-fondo .background-image {
-  opacity: 0.7; /* misma transparencia que imagen de Eventos.jsx */
+  filter: brightness(.2);
+  opacity: 0.85; 
 }
