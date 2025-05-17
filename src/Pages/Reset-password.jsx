@@ -40,8 +40,8 @@ export function ResetPassword() {
     const controlarToken = async ()=>{
         const respuesta = await axios.post('http://localhost:3000/reset/tokenCheck', {token});
         
-        if(respuesta.success) {setTokenValido(true)}
-        else {setTokenMessage(respuesta.message)}
+        if(respuesta.data.success) {setTokenValido(true)}
+        else {setTokenMessage(respuesta.data.message); console.log(respuesta)}
     }
 
     controlarToken()
