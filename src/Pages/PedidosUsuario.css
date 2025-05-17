@@ -28,9 +28,22 @@
     background-color: #fff;
 }
 
-.pedido-card button {
+.btn_volverPedir{
+    background-color: #ad8b4b;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 0.5rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 20%;
+    color: white;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+}
+.detalles {
     margin-top: 0.5rem;
-    background-color: #a57c30;
+    background-color: #ad8b4b;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -66,3 +79,5 @@
     color: #666;
     font-style: italic;
 }
+
+

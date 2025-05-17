@@ -24,8 +24,10 @@ const Tienda = () => {
       ? `http://localhost:3000/ProductoPorCategoria/${categoriaSeleccionada}`
       : "http://localhost:3000/Productos";
 
-    axios.get(url).then((res) => setProductos(res.data));
-  }, [categoriaSeleccionada]);
+      axios.get(url).then((res) =>
+    setProductos(res.data.filter((p) => p.stock > 0)) // ⬅️ solo productos con stock > 0
+  );
+}, [categoriaSeleccionada]);
 
   const manejarAgregarAlCarrito = (producto) => {
   agregarAlCarrito(producto);

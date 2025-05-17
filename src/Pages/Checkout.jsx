@@ -17,6 +17,17 @@ const Checkout = () => {
 
     const [isLocked, setIsLocked] = useState(false);
 
+    function obtenerFechaHoraLocal() {
+    const fecha = new Date();
+    const año = fecha.getFullYear();
+    const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+    const dia = String(fecha.getDate()).padStart(2, '0');
+    const horas = String(fecha.getHours()).padStart(2, '0');
+    const minutos = String(fecha.getMinutes()).padStart(2, '0');
+    const segundos = String(fecha.getSeconds()).padStart(2, '0');
+
+    return `${año}-${mes}-${dia} ${horas}:${minutos}:${segundos}`;
+}
 useEffect(() => {
     if (user) {
         setFormData({
@@ -69,11 +80,10 @@ useEffect(() => {
             return;
         }
     
-        // Crear el cuerpo de la petición
         const pedidoData = {
             carrito: carrito,
-            estado: "pendiente", // o lo que uses por defecto
-            fecha: new Date().toISOString().split('T')[0], // formato YYYY-MM-DD
+            estado: "pendiente",
+            fecha: obtenerFechaHoraLocal(),
             numero: formData.phone,
             nombre: formData.name
         };
@@ -96,7 +106,7 @@ useEffect(() => {
                 alert("Error al finalizar la compra en el servidor: " + data.error);
             }
         } catch (error) {
-            console.error("Error en finalizarCompra:", err); // <--- agregá esto
+            console.error("Error en finalizarCompra:", error); // <--- agregá esto
             console.error("Error al conectar con el backend:", error);
             alert("Hubo un problema al conectar con el servidor.");
         }

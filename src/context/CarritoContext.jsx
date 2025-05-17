@@ -29,6 +29,21 @@ export const CarritoProvider = ({ children }) => {
     });
   };
 
+  const VolverAPedirCarrito = (producto) => {
+    setCarrito(prev => {
+        const existe = prev.find(p => p.ID_Producto === producto.ID_Producto);
+        if (existe) {
+            return prev.map(p =>
+                p.ID_Producto === producto.ID_Producto
+                    ? { ...p, cantidad: p.cantidad + producto.cantidad } // ✅ sumamos la cantidad del producto
+                    : p
+            );
+        } else {
+            return [...prev, { ...producto }]; // ✅ usamos la cantidad que ya viene en el producto
+        }
+    });
+};
+
   const quitarDelCarrito = (id) => {
     setCarrito(prev => prev.filter(item => item.ID_Producto !== id));
   };
@@ -69,6 +84,7 @@ export const CarritoProvider = ({ children }) => {
         aumentarCantidad,
         disminuirCantidad,
         borrarCarrito,
+        VolverAPedirCarrito,
         totalCarrito
       }}
     >

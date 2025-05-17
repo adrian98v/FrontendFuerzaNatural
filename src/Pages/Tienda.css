@@ -117,7 +117,7 @@
   border: 1px solid #e8ddd2;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.829);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.829);
   transition: transform 0.3s ease;
 }
 
@@ -138,12 +138,12 @@
 .producto-info h3 {
   margin: 0;
   font-size: 1.2rem;
-  color: #4a3c31;
+  color: #412f21;
 }
 
 .descripcion {
   font-size: 0.95rem;
-  color: #666;
+  color: #000000;
   margin: 0.5rem 0;
 }
 
@@ -154,7 +154,7 @@
 }
 
 .btn-agregar {
-  background-color: #2b6918;
+  background-color: #35801f;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -166,7 +166,7 @@
 }
 
 .btn-agregar:hover {
-  background-color: #3c8f23;
+  background-color: #4fbd2e;
 }
 
 .notificacion-agregado {
