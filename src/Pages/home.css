@@ -44,7 +44,7 @@ body {
 }
 
 .small-title {
-  color: #bd9938;
+  color: #d6ab33;
   font-size: 2.4rem;
   margin: 0;
   font-weight: 700;
@@ -78,23 +78,23 @@ body {
   cursor: pointer;
   border-radius: 12px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(227, 7, 7, 0.2);
+  box-shadow: 0 4px 8px rgba(253, 164, 30, 0.2);
 }
 
 .catalog-button,
 .about-button {
-  background-color: #b28e6d73;
-  color: #b5b1a9;
+  background-color: #d6aa33c4;
+  color: #ffffff;
 }
 
 .catalog-button:hover,
 .about-button:hover {
-  background-color: #1e1d1d1a;
+  background-color: #f8c538;
   transform: scale(1.05);
 }
 
 .fondo2 {
-  background-color: #d4aa82;
+  background-color: #d4aa82d2;
   padding-top: 3px;
   padding-bottom: 3px;
 }
@@ -146,7 +146,7 @@ body {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
-  color: #51421a;
+  color: #352b0f;
 }
 
 .service-card p {
