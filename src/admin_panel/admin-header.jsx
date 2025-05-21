@@ -14,7 +14,7 @@ export const AdminHeader = () => {
 
     async function handleLogout() {
         try {
-          const result = await axios.post('http://localhost:3000/logout', {}, { withCredentials: true });
+          const result = await axios.post('https://backendfuerzanatural.onrender.com/logout', {}, { withCredentials: true });
           
           setUser(null);
           navigate("/")

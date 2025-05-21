@@ -15,7 +15,7 @@ export function Clientes() {
 
     const handleDelete = async () => {
         try {
-            const resultado = await axios.delete(`http://localhost:3000/usuario/${numeroEliminar}`);
+            const resultado = await axios.delete(`https://backendfuerzanatural.onrender.com/usuario/${numeroEliminar}`);
             const mensaje = resultado.data.message;
             setMensajeServidor(mensaje);
             setNumeroEliminar('');
@@ -27,7 +27,7 @@ export function Clientes() {
 
     useEffect(() => {
         // Cargar los clientes
-        axios.get("http://localhost:3000/admin/clientes", { withCredentials: true })
+        axios.get("https://backendfuerzanatural.onrender.com/admin/clientes", { withCredentials: true })
             .then(res => {
                 const unicosPorNumero = [];
                 const numerosVistos = new Set();

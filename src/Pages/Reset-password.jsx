@@ -22,7 +22,7 @@ export function ResetPassword() {
     if(contrasenia == confirmarContrasenia){
         try {
 
-            const response = await axios.post('http://localhost:3000/reset/generatePassword', {contrasenia, token});
+            const response = await axios.post('https://backendfuerzanatural.onrender.com/reset/generatePassword', {contrasenia, token});
             navigate("/password_confirmation")
         } catch (error) {
             const message = error.response.data.message;
@@ -36,7 +36,7 @@ export function ResetPassword() {
   useEffect(()=>{
 
     const controlarToken = async ()=>{
-        const respuesta = await axios.post('http://localhost:3000/reset/tokenCheck', {token});
+        const respuesta = await axios.post('https://backendfuerzanatural.onrender.com/reset/tokenCheck', {token});
         
         if(respuesta.data.success) {setTokenValido(true)}
         else {setTokenMessage(respuesta.data.message); console.log(respuesta)}

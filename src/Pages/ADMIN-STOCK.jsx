@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ADMIN-STOCK.css';
 import axios from 'axios';
 
-const API = 'http://localhost:3000';
+const API = 'https://backendfuerzanatural.onrender.com';
 
 export default function AdminStock() {
   const [categorias, setCategorias] = useState([]);

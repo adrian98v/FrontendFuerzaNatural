@@ -30,7 +30,7 @@ const PedidosUsuario = () => {
 
     const fetchPedidos = async () => {
     try {
-        const res = await fetch(`http://localhost:3000/pedidos/usuario/${numero}`);
+        const res = await fetch(`https://backendfuerzanatural.onrender.com/pedidos/usuario/${numero}`);
         if (!res.ok) throw new Error("No se pudieron obtener los pedidos");
         const data = await res.json();
 
@@ -59,7 +59,7 @@ const PedidosUsuario = () => {
 
     try {
         // 1. Traer todos los productos desde la base de datos
-        const res = await fetch("http://localhost:3000/Productos");
+        const res = await fetch("https://backendfuerzanatural.onrender.com/Productos");
         if (!res.ok) throw new Error("No se pudieron obtener los productos");
         const productosBD = await res.json(); // Lista de todos los productos
 

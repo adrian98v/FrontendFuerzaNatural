@@ -9,7 +9,7 @@ const PedidosList = () => {
   useEffect(() => {
     const fetchPedidos = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/pedidos/detalles");
+        const response = await axios.get("https://backendfuerzanatural.onrender.com/pedidos/detalles");
  
         // Ordenamos los pedidos por fecha descendente
         const pedidosOrdenados = response.data.sort((a, b) => {
@@ -43,7 +43,7 @@ const PedidosList = () => {
 
   const marcarComoEntregado = async (id) => {
     try {
-      await axios.put(`http://localhost:3000/pedidos/${id}/entregado`);
+      await axios.put(`https://backendfuerzanatural.onrender.com/pedidos/${id}/entregado`);
       setPedidosPorFecha((prev) => {
         const actualizado = { ...prev };
         for (const fecha in actualizado) {

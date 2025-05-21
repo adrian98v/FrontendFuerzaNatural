@@ -14,14 +14,14 @@ const Tienda = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/Categorias")
+      .get("https://backendfuerzanatural.onrender.com/Categorias")
       .then((res) => setCategorias(res.data));
   }, []);
 
   useEffect(() => {
     const url = categoriaSeleccionada
-      ? `http://localhost:3000/ProductoPorCategoria/${categoriaSeleccionada}`
-      : "http://localhost:3000/Productos";
+      ? `https://backendfuerzanatural.onrender.com/ProductoPorCategoria/${categoriaSeleccionada}`
+      : "https://backendfuerzanatural.onrender.com/Productos";
 
     axios.get(url).then((res) =>
       setProductos(res.data.filter((p) => p.stock > 0))

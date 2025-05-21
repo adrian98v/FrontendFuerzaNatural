@@ -114,7 +114,7 @@ const Checkout = () => {
         };
 
         try {
-            const response = await fetch("http://localhost:3000/checkout/finalizarCompra", {
+            const response = await fetch("https://backendfuerzanatural.onrender.com/checkout/finalizarCompra", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(pedidoData),

@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
     e.preventDefault(); 
 
     try {
-      const response = await axios.post('http://localhost:3000/signup', {
+      const response = await axios.post('https://backendfuerzanatural.onrender.com/signup', {
         nombre: nombre,
         email: email,
         is_admin: true,

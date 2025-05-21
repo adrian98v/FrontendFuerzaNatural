@@ -20,7 +20,7 @@ function PasswordRequest() {
 
     try {
 
-      const response = await axios.post('http://localhost:3000/reset/password', {email});
+      const response = await axios.post('https://backendfuerzanatural.onrender.com/reset/password', {email});
 
       navigate('/email-confirmation'); // redirige a la pagina de confirmación de envio de email
 

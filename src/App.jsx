@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     async function verificarSesion() {
-      const result = await axios.get("http://localhost:3000/userCheck", {
+      const result = await axios.get("https://backendfuerzanatural.onrender.com/userCheck", {
         withCredentials: true,
       });
 

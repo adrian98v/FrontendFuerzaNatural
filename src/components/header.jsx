@@ -28,7 +28,7 @@ const Header = () => {
   async function handleLogout() {
     try {
       const result = await axios.post(
-        "http://localhost:3000/logout",
+        "https://backendfuerzanatural.onrender.com/logout",
         {},
         { withCredentials: true }
       );
@@ -52,7 +52,7 @@ const Header = () => {
 
   useEffect(() => {
     async function verificarSesion() {
-      const result = await axios.get("http://localhost:3000/userCheck", {
+      const result = await axios.get("https://backendfuerzanatural.onrender.com/userCheck", {
         withCredentials: true,
       });
 

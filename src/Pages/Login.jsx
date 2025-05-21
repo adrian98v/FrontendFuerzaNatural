@@ -15,12 +15,12 @@ function Login() {
     e.preventDefault(); 
 
     try {
-      const response = await axios.post('http://localhost:3000/login', {
+      const response = await axios.post('https://backendfuerzanatural.onrender.com/login', {
         email,
         contrasenia
       }, {withCredentials: true});
 
-
+      console.log(response)
       navigate('/'); // redirige al home
 
     } catch (error) {
