@@ -20,7 +20,7 @@ function Login() {
         contrasenia
       }, {withCredentials: true});
 
-      console.log(response)
+      
       navigate('/'); // redirige al home
 
     } catch (error) {
