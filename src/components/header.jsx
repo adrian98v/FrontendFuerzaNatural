@@ -9,7 +9,7 @@ import { useCarrito } from "../context/CarritoContext";
 const Header = () => {
   const { user, setUser } = useContext(DataContext);
   const [menuLateralAbierto, setMenuLateralAbierto] = useState(false);
-  const [menuResponsive, setMenuResponsive] = useState(true)
+  const [menuResponsive, setMenuResponsive] = useState(false)
 
   const [anchoPantalla, setAnchoPantalla] = useState(0);
 
@@ -78,7 +78,8 @@ const Header = () => {
       const width = window.innerWidth
       setAnchoPantalla(width);
 
-      if(width > 800)setMenuResponsive(true);
+      if(width > 800)setMenuResponsive(true)
+      else setMenuResponsive(false)
     };
     manejarResize();
     window.addEventListener("resize", manejarResize);
@@ -126,7 +127,7 @@ const Header = () => {
           <div className='nav_container'>
 
             
-            <nav className={`header_options ${menuResponsive ? 'activo' : ''}`}>
+            <nav className={`header_options ${!menuResponsive ? 'activo' : ''}`}>
             <a href="/">Inicio</a>
             <a href="/catalogo">Tienda</a>
             <a href="/About">Nosotros</a>
