@@ -1,16 +1,15 @@
-// Tienda.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Tienda.css";
 import Header from "../components/header.jsx";
 import Fondo from "../assets/PAN_RODAJAS2_VIVA.webp";
-import { useCarrito } from "../context/CarritoContext.jsx"; // ⬅️ Importar
+import { useCarrito } from "../context/CarritoContext.jsx";
 
 const Tienda = () => {
   const [categorias, setCategorias] = useState([]);
   const [productos, setProductos] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
-  const { agregarAlCarrito } = useCarrito(); // ⬅️ Usar
+  const { agregarAlCarrito } = useCarrito();
   const [mensajeAgregado, setMensajeAgregado] = useState(false);
 
   useEffect(() => {
@@ -24,27 +23,27 @@ const Tienda = () => {
       ? `http://localhost:3000/ProductoPorCategoria/${categoriaSeleccionada}`
       : "http://localhost:3000/Productos";
 
-      axios.get(url).then((res) =>
-    setProductos(res.data.filter((p) => p.stock > 0)) // ⬅️ solo productos con stock > 0
-  );
-}, [categoriaSeleccionada]);
+    axios.get(url).then((res) =>
+      setProductos(res.data.filter((p) => p.stock > 0))
+    );
+  }, [categoriaSeleccionada]);
 
   const manejarAgregarAlCarrito = (producto) => {
-  agregarAlCarrito(producto);
-  setMensajeAgregado(true);
-  setTimeout(() => {
-    setMensajeAgregado(false);
-  }, 2000); // El mensaje desaparece después de 2 segundos
-};
+    agregarAlCarrito(producto);
+    setMensajeAgregado(true);
+    setTimeout(() => {
+      setMensajeAgregado(false);
+    }, 2000);
+  };
 
-return (
-  <div className="tienda">
-      <Header className="tienda-header"></Header>
+  return (
+    <div className="tienda">
+      <Header className="tienda-header" />
       {mensajeAgregado && (
-  <div className="notificacion-agregado">
-      ✅ Producto agregado al carrito
-    </div>
-  )}
+        <div className="notificacion-agregado">
+          ✅ Producto agregado al carrito
+        </div>
+      )}
 
       <div className="tienda-container">
         <div className="categorias">
@@ -72,27 +71,34 @@ return (
         <div className="productos-container">
           <h1 className="titulo-tienda">Tienda de Panadería</h1>
           <div className="productos1">
-            {productos.map((prod) => (
-              <div key={prod.ID_Producto} className="producto-card">
-                <img
-                  src={prod.imagen}
-                  alt={prod.nombre}
-                  className="producto-imagen"
-                />
-                <div className="producto-info">
-                  <h3>{prod.nombre}</h3>
-                  <p className="descripcion">{prod.descripcion}</p>
-                  <p className="precio">${prod.precio}</p>
-                  <button
-                    className="btn-agregar"
-                    onClick={() => manejarAgregarAlCarrito(prod)}
+            {productos.map((prod) => {
+              const esPromocion =
+                prod.categoria?.toLowerCase() === "promocion";
 
-                  >
-                    Agregar al carrito
-                  </button>
+              return (
+                <div key={prod.ID_Producto} className="producto-card">
+                  {esPromocion && (
+                    <div className="etiqueta-promocion">🔥 Promoción</div>
+                  )}
+                  <img
+                    src={prod.imagen}
+                    alt={prod.nombre}
+                    className="producto-imagen"
+                  />
+                  <div className="producto-info">
+                    <h3>{prod.nombre}</h3>
+                    <p className="descripcion">{prod.descripcion}</p>
+                    <p className="precio">${prod.precio}</p>
+                    <button
+                      className="btn-agregar"
+                      onClick={() => manejarAgregarAlCarrito(prod)}
+                    >
+                      Agregar al carrito
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

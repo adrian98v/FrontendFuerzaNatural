@@ -119,13 +119,14 @@
 .producto-card {
   display: flex;
   flex-direction: column;
-  
+  position: relative;
   background-color: #fff8f0;
   border: none;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 350px;
   
  
 }
@@ -171,6 +172,20 @@
   font-size: 1rem;
   color: #8b5e3c;
 }
+.etiqueta-promocion {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+
 
 .btn-agregar {
   background-color: #35801f;
