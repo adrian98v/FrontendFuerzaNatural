@@ -55,7 +55,7 @@ const About = () => {
             <h3>Nuestros Valores</h3>
             <p>
               Nos esforzamos por cuidar de usted y del medio ambiente en el que
-              vivimos. Todos los panes, rellenos y ensaladas se consideran para
+              vivimos. Todas nuestras elaboraciones se consideran recomendables para
               una vida saludable.
             </p>
           </div>

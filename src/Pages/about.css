@@ -140,6 +140,7 @@ body {
   font-size: 1rem;
   color: #333;
   line-height: 1.6;
+  font-weight: 400;
 }
 
 /* controla altura de imagen solo en About */
@@ -163,6 +164,6 @@ body {
 }
 
   .overview-header h2 {
-  font-size: 2.1rem;
+  font-size: 1.8rem;
 }
 }
