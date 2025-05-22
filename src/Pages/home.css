@@ -313,11 +313,11 @@ body {
 
 @media (max-width: 600px){
   .large-title{
-    font-size: 2.5em;
+    font-size: 2.3em;
   }
 
   .small-title{
-    font-size: 1.8em;
+    font-size: 1.4em;
   }
 
   .buttons{
@@ -329,7 +329,7 @@ body {
   .about-button{
     width: 90vw;
     
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 
   .wave-container{
