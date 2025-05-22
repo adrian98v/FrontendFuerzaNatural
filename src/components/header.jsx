@@ -74,19 +74,18 @@ const Header = () => {
  
 
   useEffect(() => {
-
-    window.addEventListener("DOMContentLoaded", ()=>{
-        const manejarResize = () => {
+    
+    const manejarResize = () => {
       const width = window.innerWidth
       setAnchoPantalla(width);
 
       if(width > 800)setMenuResponsive(true)
-      else setMenuResponsive(false)
+      document.querySelector(".nav_container").classList.toggle("visible")
     };
     manejarResize();
     window.addEventListener("resize", manejarResize);
 
-    })
+
   }, []);
 
 
