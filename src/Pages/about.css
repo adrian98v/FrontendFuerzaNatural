@@ -151,3 +151,18 @@ body {
   filter: brightness(.2);
   opacity: 0.85; 
 }
+
+@media (max-width: 600px) {
+
+  .about-hero-title h1 {
+  font-size: 2.7rem; 
+}
+
+.about-hero-subtitle {
+  font-size: 1.7rem;
+}
+
+  .overview-header h2 {
+  font-size: 2.1rem;
+}
+}
