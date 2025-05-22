@@ -63,9 +63,13 @@ const Contacto = () => {
           <div id="div_contacto_id">
             <h3>Horarios</h3>
             <p>
-              Lunes a Domingo:
+              Lunes a Viernes:
               <br />
-              08:00 AM - 13:00 PM y 16:00 AM - 21:00 PM
+              08:00 - 13:00 y 17:00 - 21:00
+              <br />
+              Sabados:
+              <br />
+              08:00 - 13:00
             </p>
           </div>
         </div>
