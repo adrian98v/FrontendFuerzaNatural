@@ -110,7 +110,7 @@ const Header = () => {
       {!user && (
         <div className="topbar">
           <p>
-            ¡Guarda tu historial de compras,{" "}
+            ¡Guarda tu historial de compras!{" "}
             <a href="/login">Registrate ahora</a>
           </p>
         </div>
