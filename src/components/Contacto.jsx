@@ -79,7 +79,7 @@ const Contacto = () => {
           <i className="bi bi-telephone flex-shrink-0"></i>
           <div id="div_contacto_id">
             <h3>Teléfono</h3>
-            <p>+54 9 3624 696969</p>
+            <p>+54 9 3624 513645</p>
           </div>
         </div>
 
