@@ -336,5 +336,7 @@ body {
     height: 50px;
   }
 
-  
+  .services-header h2 {
+  font-size: 2rem;
+  }
 }
