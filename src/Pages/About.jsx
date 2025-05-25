@@ -21,7 +21,9 @@ const About = () => {
             <h1>Conocenos</h1>
             <hr />
           </div>
-          <h2 className="about-hero-subtitle">Conocenos un poco más .......</h2>
+          <h2 className="about-hero-subtitle">
+            Artesanos de la masa madre desde el corazón de la panadería.
+          </h2>
         </div>
       </div>
       {/* ————— Overview Section ————— */}
@@ -55,8 +57,8 @@ const About = () => {
             <h3>Nuestros Valores</h3>
             <p>
               Nos esforzamos por cuidar de usted y del medio ambiente en el que
-              vivimos. Todas nuestras elaboraciones se consideran recomendables para
-              una vida saludable.
+              vivimos. Todas nuestras elaboraciones se consideran recomendables
+              para una vida saludable.
             </p>
           </div>
 

@@ -88,10 +88,11 @@ function Home() {
             <img src={Imagen1} alt="Nuestra Materia Prima" />
             <h4>Pan de Campo </h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua...
+              Elaborado con masa madre propia y harinas orgánicas libres de
+              pesticidas, nuestro pan de campo ofrece una miga esponjosa y
+              corteza crujiente. Cada hogaza conserva intactos los nutrientes
+              del cereal gracias a nuestra molienda artesanal, garantizando una
+              experiencia saludable y auténtica.
             </p>
           </div>
 
@@ -100,10 +101,10 @@ function Home() {
             <img src={Imagen2} alt="Nuestros Productos" />
             <h4>Facturas</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua...
+              Nuestras facturas se hornean con manteca de primera calidad y
+              azúcares naturales, sin recurrir a aditivos ni conservantes. El
+              resultado es un bocado suave y delicado que respeta la tradición
+              panadera y cuida tu salud.
             </p>
           </div>
 
@@ -112,10 +113,10 @@ function Home() {
             <img src={Imagen3} alt="Nuestros Procesos" />
             <h4>Los mejores ingredientes</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua...
+              Seleccionamos granos y semillas de cultivo responsable, molidos de
+              forma artesanal para preservar sus propiedades. De esta manera,
+              cada creación refleja nuestro compromiso con la sostenibilidad, el
+              sabor y tu bienestar.
             </p>
           </div>
         </div>
