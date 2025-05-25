@@ -51,35 +51,39 @@ const Checkout = () => {
         return `${año}-${mes}-${dia} ${horas}:${minutos}:${segundos}`;
     }
 
+    
+
     const enviarPedidoPorWhatsApp = () => {
-        const numeroWhatsApp = "5493625293546";
-        let mensaje = `¡Hola! Quiero realizar el siguiente pedido:\n\n`;
-        carrito.forEach((item) => {
-            mensaje += `- ${item.cantidad} x ${item.nombre} ($${item.precio} c/u)\n`;
-        });
-        mensaje += `\nTotal: $${totalCarrito.toFixed(2)}\n\n`;
-        mensaje += `Nombre: ${formData.name}\n`;
-        mensaje += `Teléfono: ${formData.phone}\n`;
-        mensaje += `Método de entrega: ${deliveryOption === "retiro" ? "Retiro en el local" : "Envío a domicilio"}\n`;
+    const numeroWhatsApp = "5493625293546";
+    let mensaje = `¡Hola! Quiero realizar el siguiente pedido:\n\n`;
+    
+    carrito.forEach((item) => {
+        mensaje += `- ${item.cantidad} x ${item.nombre} ($${item.precio} c/u)\n`;
+    });
 
-        if (deliveryOption === "envio") {
-            mensaje += `Dirección: ${formData.address}\n`;
-        }
+    mensaje += `\nTotal: $${totalCarrito.toFixed(2)}\n\n`;
+    mensaje += `Nombre: ${formData.name}\n`;
+    mensaje += `Teléfono: ${formData.phone}\n`;
+    mensaje += `Método de entrega: ${deliveryOption === "retiro" ? "Retiro en el local" : "Envío a domicilio"}\n`;
 
-        const mensajeCodificado = encodeURIComponent(mensaje);
-        const url = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+    if (deliveryOption === "envio") {
+        mensaje += `Dirección: ${formData.address}\n`;
+    }
 
-        alert("¡Gracias por tu compra! Te redirigiremos a WhatsApp para confirmar el pedido...");
-        setTimeout(() => {
-            window.open(url, "_blank");
-        }, 1000);
+    const mensajeCodificado = encodeURIComponent(mensaje);
+    const url = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
 
-        borrarCarrito();
-        setTimeout(() => {
-            navigate("/");
-        }, 1000);
-    };
+    alert("¡Gracias por tu compra! Te redirigiremos a WhatsApp para confirmar el pedido...");
 
+    // Limpiar el carrito antes de redirigir
+    borrarCarrito();
+
+    // Abrir WhatsApp y luego redirigir a la página principal
+    setTimeout(() => {
+        window.open(url, "_blank"); // Se mantiene igual porque abrir WhatsApp debe ser en nueva pestaña
+        navigate("/"); // Redirige a la página principal
+    }, 1000);
+};
     const handleSubmit = async (e) => {
         e.preventDefault();
 
