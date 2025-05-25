@@ -8,9 +8,9 @@ import "./Checkout.css";
 import { DataContext } from "../App.jsx";
 
 const Checkout = () => {
-    const { user } = useContext(DataContext);
+    const { user, setUser } = useContext(DataContext);
     const [isLocked, setIsLocked] = useState(false);
-    const [deliveryOption, setDeliveryOption] = useState("");
+    const [deliveryOption, setDeliveryOption] = useState(""); // retiro o envio
 
     const [formData, setFormData] = useState({
         name: "",
@@ -40,12 +40,45 @@ const Checkout = () => {
         }
     }, [user]);
 
-    const obtenerFechaHoraLocal = () => {
+    function obtenerFechaHoraLocal() {
         const fecha = new Date();
-        return fecha.toISOString().slice(0, 19).replace("T", " ");
-    };
+        const año = fecha.getFullYear();
+        const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+        const dia = String(fecha.getDate()).padStart(2, '0');
+        const horas = String(fecha.getHours()).padStart(2, '0');
+        const minutos = String(fecha.getMinutes()).padStart(2, '0');
+        const segundos = String(fecha.getSeconds()).padStart(2, '0');
+        return `${año}-${mes}-${dia} ${horas}:${minutos}:${segundos}`;
+    }
 
-    
+    const enviarPedidoPorWhatsApp = () => {
+        const numeroWhatsApp = "5493625293546";
+        let mensaje = `¡Hola! Quiero realizar el siguiente pedido:\n\n`;
+        carrito.forEach((item) => {
+            mensaje += `- ${item.cantidad} x ${item.nombre} ($${item.precio} c/u)\n`;
+        });
+        mensaje += `\nTotal: $${totalCarrito.toFixed(2)}\n\n`;
+        mensaje += `Nombre: ${formData.name}\n`;
+        mensaje += `Teléfono: ${formData.phone}\n`;
+        mensaje += `Método de entrega: ${deliveryOption === "retiro" ? "Retiro en el local" : "Envío a domicilio"}\n`;
+
+        if (deliveryOption === "envio") {
+            mensaje += `Dirección: ${formData.address}\n`;
+        }
+
+        const mensajeCodificado = encodeURIComponent(mensaje);
+        const url = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+
+        alert("¡Gracias por tu compra! Te redirigiremos a WhatsApp para confirmar el pedido...");
+        setTimeout(() => {
+            window.open(url, "_blank");
+        }, 1000);
+
+        borrarCarrito();
+        setTimeout(() => {
+            navigate("/");
+        }, 1000);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -70,8 +103,9 @@ const Checkout = () => {
             return;
         }
 
+        // Enviar solo los datos necesarios al backend, sin el tipo de entrega
         const pedidoData = {
-            carrito,
+            carrito: carrito,
             estado: "pendiente",
             fecha: obtenerFechaHoraLocal(),
             numero: formData.phone,
@@ -89,28 +123,7 @@ const Checkout = () => {
             const data = await response.json();
 
             if (response.ok) {
-                const numeroWhatsApp = "5493625293546";
-        let mensaje = `¡Hola! Quiero realizar el siguiente pedido:\n\n`;
-
-        carrito.forEach((item) => {
-            mensaje += `- ${item.cantidad} x ${item.nombre} ($${item.precio} c/u)\n`;
-        });
-
-        mensaje += `\nTotal: $${totalCarrito.toFixed(2)}\n\n`;
-        mensaje += `Nombre: ${formData.name}\n`;
-        mensaje += `Teléfono: ${formData.phone}\n`;
-        mensaje += `Método de entrega: ${deliveryOption === "retiro" ? "Retiro en el local" : "Envío a domicilio"}\n`;
-
-        if (deliveryOption === "envio") {
-            mensaje += `Dirección: ${formData.address}\n`;
-        }
-
-        const mensajeCodificado = encodeURIComponent(mensaje);
-        const url = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
-
-        window.open(url, "_blank");
-        borrarCarrito();
-        navigate("/");
+                enviarPedidoPorWhatsApp();
             } else {
                 alert("Error al finalizar la compra en el servidor: " + data.error);
             }
@@ -123,6 +136,11 @@ const Checkout = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+    };
+
+    const cancelarCompra = () => {
+        borrarCarrito();
+        navigate('/');
     };
 
     return (
@@ -146,7 +164,16 @@ const Checkout = () => {
                             <label htmlFor="name">Nombre:</label>
                             <div className="input-icon-wrapper form-group">
                                 <FaUser />
-                                <input type="text" id="name" name="name" placeholder="Ej: Juan Pérez" value={formData.name} onChange={handleChange} disabled={isLocked} required />
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Ej: Juan Pérez"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    disabled={isLocked}
+                                    required
+                                />
                             </div>
                         </div>
 
@@ -154,7 +181,16 @@ const Checkout = () => {
                             <label htmlFor="phone">Número de Teléfono:</label>
                             <div className="input-icon-wrapper">
                                 <FaPhoneAlt />
-                                <input type="tel" id="phone" name="phone" placeholder="Ej: 3624567890" value={formData.phone} onChange={handleChange} disabled={isLocked} required />
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="Ej: 3624567890"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    disabled={isLocked}
+                                    required
+                                />
                             </div>
                         </div>
 
@@ -162,11 +198,23 @@ const Checkout = () => {
                             <label>Método de entrega:</label>
                             <div className="radio-group">
                                 <label>
-                                    <input type="radio" name="deliveryOption" value="retiro" checked={deliveryOption === "retiro"} onChange={() => setDeliveryOption("retiro")} />
+                                    <input
+                                        type="radio"
+                                        name="deliveryOption"
+                                        value="retiro"
+                                        checked={deliveryOption === "retiro"}
+                                        onChange={() => setDeliveryOption("retiro")}
+                                    />
                                     <span>Retiro en el local</span>
                                 </label>
                                 <label>
-                                    <input type="radio" name="deliveryOption" value="envio" checked={deliveryOption === "envio"} onChange={() => setDeliveryOption("envio")} />
+                                    <input
+                                        type="radio"
+                                        name="deliveryOption"
+                                        value="envio"
+                                        checked={deliveryOption === "envio"}
+                                        onChange={() => setDeliveryOption("envio")}
+                                    />
                                     <span>Envío a domicilio </span>
                                 </label>
                             </div>
@@ -177,12 +225,22 @@ const Checkout = () => {
                                 <label htmlFor="address">Dirección:</label>
                                 <div className="input-icon-wrapper">
                                     <FaMapMarkerAlt />
-                                    <input type="text" id="address" name="address" placeholder="Ej: Lopez y Planes 1234" value={formData.address} onChange={handleChange} required />
+                                    <input
+                                        type="text"
+                                        id="address"
+                                        name="address"
+                                        placeholder="Ej: Lopez y Planes 1234"
+                                        value={formData.address}
+                                        onChange={handleChange}
+                                        required
+                                    />
                                 </div>
                             </div>
                         )}
 
-                        <motion.button type="submit" className="submit-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>Finalizar Compra</motion.button>
+                        <motion.button type="submit" className="submit-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                            Finalizar Compra
+                        </motion.button>
                     </form>
                 </motion.div>
 
@@ -210,7 +268,8 @@ const Checkout = () => {
                             </ul>
                             <h3>Total a pagar: ${totalCarrito.toFixed(2)}</h3>
                             <div className="cart-options">
-                                <a href="/catalogo" className="cart-link">Seguir comprando</a>
+                                <a href="/catalogo" className="cart-link">Agregar más productos</a>
+                                <button onClick={cancelarCompra} className="cart-link cancel">Cancelar compra</button>
                             </div>
                         </>
                     )}
