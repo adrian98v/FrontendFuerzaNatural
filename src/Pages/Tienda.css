@@ -423,8 +423,10 @@
 
   .producto-imagen {
     height: 100%;
-    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
     object-fit: repeat;
+    
   }
   .producto-info{
     display: flex;
