@@ -75,10 +75,6 @@ const Checkout = () => {
 
     // ✅ Abrir WhatsApp inmediatamente tras la acción del usuario
     window.open(url, "_blank");
-
-    // ✅ Mostrar el mensaje después de abrir WhatsApp
-    alert("¡Gracias por tu compra! Te redirigiremos al inicio...");
-
     borrarCarrito();
     navigate("/");
 };
