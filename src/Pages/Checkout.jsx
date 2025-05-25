@@ -45,30 +45,7 @@ const Checkout = () => {
         return fecha.toISOString().slice(0, 19).replace("T", " ");
     };
 
-    const enviarPedidoPorWhatsApp = () => {
-        const numeroWhatsApp = "5493625293546";
-        let mensaje = `¡Hola! Quiero realizar el siguiente pedido:\n\n`;
-
-        carrito.forEach((item) => {
-            mensaje += `- ${item.cantidad} x ${item.nombre} ($${item.precio} c/u)\n`;
-        });
-
-        mensaje += `\nTotal: $${totalCarrito.toFixed(2)}\n\n`;
-        mensaje += `Nombre: ${formData.name}\n`;
-        mensaje += `Teléfono: ${formData.phone}\n`;
-        mensaje += `Método de entrega: ${deliveryOption === "retiro" ? "Retiro en el local" : "Envío a domicilio"}\n`;
-
-        if (deliveryOption === "envio") {
-            mensaje += `Dirección: ${formData.address}\n`;
-        }
-
-        const mensajeCodificado = encodeURIComponent(mensaje);
-        const url = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
-
-        window.open(url, "_blank");
-        borrarCarrito();
-        navigate("/");
-    };
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -112,7 +89,28 @@ const Checkout = () => {
             const data = await response.json();
 
             if (response.ok) {
-                enviarPedidoPorWhatsApp();
+                const numeroWhatsApp = "5493625293546";
+        let mensaje = `¡Hola! Quiero realizar el siguiente pedido:\n\n`;
+
+        carrito.forEach((item) => {
+            mensaje += `- ${item.cantidad} x ${item.nombre} ($${item.precio} c/u)\n`;
+        });
+
+        mensaje += `\nTotal: $${totalCarrito.toFixed(2)}\n\n`;
+        mensaje += `Nombre: ${formData.name}\n`;
+        mensaje += `Teléfono: ${formData.phone}\n`;
+        mensaje += `Método de entrega: ${deliveryOption === "retiro" ? "Retiro en el local" : "Envío a domicilio"}\n`;
+
+        if (deliveryOption === "envio") {
+            mensaje += `Dirección: ${formData.address}\n`;
+        }
+
+        const mensajeCodificado = encodeURIComponent(mensaje);
+        const url = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+
+        window.open(url, "_blank");
+        borrarCarrito();
+        navigate("/");
             } else {
                 alert("Error al finalizar la compra en el servidor: " + data.error);
             }
