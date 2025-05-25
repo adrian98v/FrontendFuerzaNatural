@@ -73,16 +73,14 @@ const Checkout = () => {
     const mensajeCodificado = encodeURIComponent(mensaje);
     const url = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
 
-    alert("¡Gracias por tu compra! Te redirigiremos a WhatsApp para confirmar el pedido...");
+    // ✅ Abrir WhatsApp inmediatamente tras la acción del usuario
+    window.open(url, "_blank");
 
-    // Limpiar el carrito antes de redirigir
+    // ✅ Mostrar el mensaje después de abrir WhatsApp
+    alert("¡Gracias por tu compra! Te redirigiremos al inicio...");
+
     borrarCarrito();
-
-    // Abrir WhatsApp y luego redirigir a la página principal
-    setTimeout(() => {
-        window.open(url, "_blank"); // Se mantiene igual porque abrir WhatsApp debe ser en nueva pestaña
-        navigate("/"); // Redirige a la página principal
-    }, 1000);
+    navigate("/");
 };
     const handleSubmit = async (e) => {
         e.preventDefault();
