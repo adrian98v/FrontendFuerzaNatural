@@ -112,6 +112,7 @@ const Checkout = () => {
             body: JSON.stringify(pedidoData),
         });
         borrarCarrito();
+        navigate('/');
     } catch (error) {
         console.error("Error en finalizarCompra:", error);
     }
