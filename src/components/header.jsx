@@ -2,9 +2,11 @@ import React, { useEffect, useState, useContext} from "react";
 import "./header.css";
 import logo from "../assets/LOGO COLOR ALTERNATIVO- MAS CHICO.png";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { DataContext } from "../App.jsx";
 import { useCarrito } from "../context/CarritoContext";
+
+
 
 const Header = () => {
   const { user, setUser } = useContext(DataContext);
@@ -129,12 +131,13 @@ const Header = () => {
 
             
             <nav className={`header_options ${menuResponsive ? 'activo' : ''}`}>
-            <a href="/">Inicio</a>
-            <a href="/catalogo">Tienda</a>
-            <a href="/About">Nosotros</a>
-            <a href="/reventa">Reventa</a>
-            <a href="/eventos">Eventos</a>
-          </nav>
+              <Link to="/">Inicio</Link>
+              <Link to="/catalogo">Tienda</Link>
+              <Link to="/about">Nosotros</Link>
+              <Link to="/reventa">Reventa</Link>
+              <Link to="/eventos">Eventos</Link>
+            </nav>
+
             
 
             
@@ -207,9 +210,9 @@ const Header = () => {
                 </li>
               ))}
 
-              <a href="/checkout" className="carrito-controles">
+              <Link to="/checkout" className="carrito-controles">
                 <button>Finalizar Compra</button>
-              </a>
+              </Link>
             </ul>
           )}
           <hr />
@@ -227,11 +230,11 @@ const Header = () => {
       <li>
         <div className='nav_container_menu_lateral'>
         <nav className={`header_options_menu_lateral ${menuResponsive ? 'activo' : ''}`}>
-          <a href="/">Inicio</a>
-          <a href="/catalogo">Tienda</a>
-          <a href="/About">Nosotros</a>
-          <a href="/reventa">Reventa</a>
-          <a href="/eventos">Eventos</a>
+          <Link to="/">Inicio</Link>
+          <Link to="/catalogo">Tienda</Link>
+          <Link to="/about">Nosotros</Link>
+          <Link to="/reventa">Reventa</Link>
+          <Link to="/eventos">Eventos</Link>
         </nav>
     </div>
       </li>
