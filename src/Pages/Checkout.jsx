@@ -51,87 +51,71 @@ const Checkout = () => {
         return `${año}-${mes}-${dia} ${horas}:${minutos}:${segundos}`;
     }
 
-    const enviarPedidoPorWhatsApp = () => {
-        const numeroWhatsApp = "5493625293546";
-        let mensaje = `¡Hola! Quiero realizar el siguiente pedido:\n\n`;
-        carrito.forEach((item) => {
-            mensaje += `- ${item.cantidad} x ${item.nombre} ($${item.precio} c/u)\n`;
-        });
-        mensaje += `\nTotal: $${totalCarrito.toFixed(2)}\n\n`;
-        mensaje += `Nombre: ${formData.name}\n`;
-        mensaje += `Teléfono: ${formData.phone}\n`;
-        mensaje += `Método de entrega: ${deliveryOption === "retiro" ? "Retiro en el local" : "Envío a domicilio"}\n`;
-
-        if (deliveryOption === "envio") {
-            mensaje += `Dirección: ${formData.address}\n`;
-        }
-
-        const mensajeCodificado = encodeURIComponent(mensaje);
-        const url = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
-
-        alert("¡Gracias por tu compra! Te redirigiremos a WhatsApp para confirmar el pedido...");
-        setTimeout(() => {
-            window.open(url, "_blank");
-        }, 1000);
-
-        borrarCarrito();
-        setTimeout(() => {
-            navigate("/");
-        }, 1000);
-    };
-
     const handleSubmit = async (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        if (!formData.name.trim() || !formData.phone.trim()) {
-            alert("Por favor, completá tu nombre y teléfono.");
-            return;
-        }
+    if (!formData.name.trim() || !formData.phone.trim()) {
+        alert("Por favor, completá tu nombre y teléfono.");
+        return;
+    }
 
-        if (!deliveryOption) {
-            alert("Por favor, seleccioná si retirás en el local o si es con envío.");
-            return;
-        }
+    if (!deliveryOption) {
+        alert("Por favor, seleccioná si retirás en el local o si es con envío.");
+        return;
+    }
 
-        if (deliveryOption === "envio" && !formData.address.trim()) {
-            alert("Por favor, completá la dirección para el envío.");
-            return;
-        }
+    if (deliveryOption === "envio" && !formData.address.trim()) {
+        alert("Por favor, completá la dirección para el envío.");
+        return;
+    }
 
-        if (carrito.length === 0) {
-            alert("Tu carrito está vacío.");
-            return;
-        }
+    if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+    }
 
-        // Enviar solo los datos necesarios al backend, sin el tipo de entrega
-        const pedidoData = {
-            carrito: carrito,
-            estado: "pendiente",
-            fecha: obtenerFechaHoraLocal(),
-            numero: formData.phone,
-            nombre: formData.name,
-            direccion: formData.address,
-        };
+    // Generar mensaje y URL de WhatsApp ANTES del fetch
+    const numeroWhatsApp = "5493625293546";
+    let mensaje = `¡Hola! Quiero realizar el siguiente pedido:\n\n`;
+    carrito.forEach((item) => {
+        mensaje += `- ${item.cantidad} x ${item.nombre} ($${item.precio} c/u)\n`;
+    });
+    mensaje += `\nTotal: $${totalCarrito.toFixed(2)}\n\n`;
+    mensaje += `Nombre: ${formData.name}\n`;
+    mensaje += `Teléfono: ${formData.phone}\n`;
+    mensaje += `Método de entrega: ${deliveryOption === "retiro" ? "Retiro en el local" : "Envío a domicilio"}\n`;
 
-        try {
-            const response = await fetch("https://backendfuerzanatural.onrender.com/checkout/finalizarCompra", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(pedidoData),
-            });
+    if (deliveryOption === "envio") {
+        mensaje += `Dirección: ${formData.address}\n`;
+    }
 
-            const data = await response.json();
+    const mensajeCodificado = encodeURIComponent(mensaje);
+    const url = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
 
-            if (response.ok) {
-                enviarPedidoPorWhatsApp();
-            } else {
-                alert("Error al finalizar la compra en el servidor: " + data.error);
-            }
-        } catch (error) {
-            console.error("Error en finalizarCompra:", error);
-            alert("Hubo un problema al conectar con el servidor.");
-        }
+    // Redirigir inmediatamente a WhatsApp (esto sí se permite en iOS)
+    window.location.href = url;
+
+    // Enviar los datos en segundo plano
+    const pedidoData = {
+        carrito: carrito,
+        estado: "pendiente",
+        fecha: obtenerFechaHoraLocal(),
+        numero: formData.phone,
+        nombre: formData.name,
+        direccion: formData.address,
     };
+
+    try {
+        await fetch("https://backendfuerzanatural.onrender.com/checkout/finalizarCompra", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(pedidoData),
+        });
+        borrarCarrito();
+    } catch (error) {
+        console.error("Error en finalizarCompra:", error);
+    }
+};
 
     const handleChange = (e) => {
         const { name, value } = e.target;
