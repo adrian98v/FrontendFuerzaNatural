@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx vite",
-    "build": "npx vite build",
-    "lint": "eslint .",
-    "preview": "npx vite preview"
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
+  "start": "serve -s dist"
+}
+,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.14.0",
@@ -32,7 +33,6 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
-    "serve": "^14.2.4",
     "vite": "^6.3.5"
   },
   "engines": {
