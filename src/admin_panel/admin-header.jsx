@@ -11,11 +11,10 @@ export const AdminHeader = () => {
     const navigate = useNavigate()
 
     const {user, setUser} = useContext(DataContext)
-
-    async function handleLogout() {
+    
+    function handleLogout() {
         try {
-          const result = await axios.post('https://backendfuerzanatural.onrender.com/logout', {}, { withCredentials: true });
-          
+      
           setUser(null);
           navigate("/")
           

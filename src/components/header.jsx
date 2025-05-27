@@ -45,7 +45,9 @@ const Header = () => {
 
 
   useEffect(() => {
-    async function verificarSesion() {
+
+    if(user){
+      async function verificarSesion() {
 
       const result = await axios.post("https://backendfuerzanatural.onrender.com/userCheck", user);
 
@@ -58,6 +60,8 @@ const Header = () => {
 
     verificarSesion();
 
+    }
+    
   }, []);
 
 
