@@ -33,7 +33,7 @@ function App() {
 
     async function verificarSesion() {
 
-      if(user){
+     
 
         console.log(user)
 
@@ -44,7 +44,7 @@ function App() {
         if (result.data.user) {
           setUser(result.data.user);
         }
-      }
+    
       
     }
 
