@@ -33,13 +33,16 @@ function App() {
 
     async function verificarSesion() {
 
-      const result = await axios.post("https://backendfuerzanatural.onrender.com/userCheck", user);
+      if(user){
+        const result = await axios.post("https://backendfuerzanatural.onrender.com/userCheck", user);
 
       if (result.data.user) {
         setUser(result.data.user);
       }else{
         setUser(null)
       }
+      }
+      
     }
 
     verificarSesion();
