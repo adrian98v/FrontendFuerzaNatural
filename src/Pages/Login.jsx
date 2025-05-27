@@ -2,7 +2,7 @@ import './login.css';
 import logo from '../assets/Logo_SinFondo_MásChico.png';
 import axios from 'axios';
 import { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { DataContext } from "../App.jsx";
 
 function Login() {
@@ -44,9 +44,9 @@ function Login() {
   return (
     <div className="login-container">
       <form className="form" onSubmit={handleLogin}>
-        <a className="a_logo" href="/">
+        <Link className="a_logo" to="/">
           <img src={logo} alt="Logo" className="Logo" />
-        </a>
+        </Link>
 
         <h2 className="title">Iniciar Sesión</h2>
 
