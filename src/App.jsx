@@ -34,13 +34,14 @@ function App() {
     async function verificarSesion() {
 
       if(user){
+
+        console.log(user)
+
         const result = await axios.post("https://backendfuerzanatural.onrender.com/userCheck", user);
 
-      if (result.data.user) {
-        setUser(result.data.user);
-      }else{
-        setUser(null)
-      }
+        if (result.data.user) {
+          setUser(result.data.user);
+        }
       }
       
     }
