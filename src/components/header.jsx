@@ -80,8 +80,7 @@ const Header = () => {
 
       if(width > 800)setMenuResponsive(true)
       
-      const navContainer = document.querySelector(".nav_container");
-      navContainer.classList.remove("visible")
+      document.querySelector(".nav_container").classList.remove("visible")
     };
     manejarResize();
     window.addEventListener("resize", manejarResize);
