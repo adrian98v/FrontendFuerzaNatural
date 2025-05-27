@@ -75,7 +75,7 @@ const Checkout = () => {
     }
 
     // Generar mensaje y URL de WhatsApp ANTES del fetch
-    const numeroWhatsApp = "5493625293546";
+    const numeroWhatsApp = "5493624513645";
     let mensaje = `¡Hola! Quiero realizar el siguiente pedido:\n\n`;
     carrito.forEach((item) => {
         mensaje += `- ${item.cantidad} x ${item.nombre} ($${item.precio} c/u)\n`;
