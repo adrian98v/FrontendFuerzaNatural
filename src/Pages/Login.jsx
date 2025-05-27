@@ -25,7 +25,8 @@ function Login() {
 
 
       if (response.data.user) {
-        setUser(response.data.user);
+        const loginUser = response.data.user
+        setUser(loginUser);
       }
       
       navigate('/'); // redirige al home
