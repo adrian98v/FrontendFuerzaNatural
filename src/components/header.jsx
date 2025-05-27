@@ -66,11 +66,8 @@ const Header = () => {
 
 
   useEffect(()=>{
-    const navContainer = document.querySelector(".nav_container");
-    if(navContainer){
-      navContainer.classList.toggle("visible")
-
-    }
+    
+      document.querySelector(".nav_container").classList.toggle("visible")
   }, [menuResponsive])
 
  
