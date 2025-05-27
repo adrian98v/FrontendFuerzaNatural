@@ -25,7 +25,7 @@ function Login() {
 
       console.log(response)
 
-      if (result.data.user) {
+      if (response.data.user) {
         setUser(response.data.user);
       }
       
