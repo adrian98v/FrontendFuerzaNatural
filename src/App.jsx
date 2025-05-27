@@ -30,20 +30,26 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    async function verificarSesion() {
-      try {
-        const result = await axios.post("https://backendfuerzanatural.onrender.com/userCheck");
+
+    if(user){
+      async function verificarSesion() {
+      
+        console.log(user)
+
+        const result = await axios.post("https://backendfuerzanatural.onrender.com/userCheck", user);
+
+        
         if (result.data.user) {
           setUser(result.data.user);
         }
-      } catch (error) {
-        console.error("Error al verificar sesión:", error);
       }
-    }
+      
+    
 
     verificarSesion();
+    }
+    
   }, []);
-
 
   return (
     <DataContext.Provider value={{ user, setUser }}>

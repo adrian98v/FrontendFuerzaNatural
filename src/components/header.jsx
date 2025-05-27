@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext} from "react";
 import "./header.css";
 import logo from "../assets/LOGO COLOR ALTERNATIVO- MAS CHICO.png";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { DataContext } from "../App.jsx";
 import { useCarrito } from "../context/CarritoContext";
 
@@ -133,11 +133,11 @@ const Header = () => {
 
             
             <nav className={`header_options ${menuResponsive ? 'activo' : ''}`}>
-            <a href="/">Inicio</a>
-            <a href="/catalogo">Tienda</a>
-            <a href="/about">Nosotros</a>
-            <a href="/reventa">Reventa</a>
-            <a href="/eventos">Eventos</a>
+            <Link to="/">Inicio</Link>
+            <Link to="/catalogo">Tienda</Link>
+            <Link to="/about">Nosotros</Link>
+            <Link to="/reventa">Reventa</Link>
+            <Link to="/eventos">Eventos</Link>
           </nav>
             
 
