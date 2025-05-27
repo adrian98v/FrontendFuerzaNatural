@@ -39,6 +39,8 @@ function App() {
 
         const result = await axios.post("https://backendfuerzanatural.onrender.com/userCheck", user);
 
+        console.log(result)
+
         if (result.data.user) {
           setUser(result.data.user);
         }
