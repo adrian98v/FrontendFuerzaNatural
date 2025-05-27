@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCarrito } from "../context/CarritoContext";
 import Header from "../components/header.jsx";
 import { FaUser, FaPhoneAlt, FaShoppingCart, FaMoneyBillWave, FaMobileAlt, FaCreditCard, FaMapMarkerAlt } from "react-icons/fa";
@@ -143,7 +143,7 @@ const Checkout = () => {
             <motion.div className="checkout-container" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                 <motion.div className="checkout-form" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2, duration: 0.6 }}>
                     <h2><FaUser style={{ marginRight: "10px" }} />Información de Contacto</h2>
-                    {!user && <div className="login-links">¿Ya estás registrado? <a href="/login">Inicia sesión</a></div>}
+                    {!user && <div className="login-links">¿Ya estás registrado? <Link to="/login">Inicia sesión</Link></div>}
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="name">Nombre:</label>
@@ -253,7 +253,7 @@ const Checkout = () => {
                             </ul>
                             <h3>Total a pagar: ${totalCarrito.toFixed(2)}</h3>
                             <div className="cart-options">
-                                <a href="/catalogo" className="cart-link">Agregar más productos</a>
+                                <Link to="/catalogo" className="cart-link">Agregar más productos</Link>
                                 <button onClick={cancelarCompra} className="cart-link cancel">Cancelar compra</button>
                             </div>
                         </>
