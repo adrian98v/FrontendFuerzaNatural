@@ -115,15 +115,15 @@ const Header = () => {
         <div className="topbar">
           <p>
             ¡Guarda tu historial de compras!{" "}
-            <a href="/login">Registrate ahora</a>
+            <Link to="/login">Registrate ahora</Link>
           </p>
         </div>
       )}
 
       <header>
-        <a href="/">
+        <Link to="/">
           <img src={logo} alt="Logo" className="logo" />
-        </a>
+        </Link>
         
       
         <div className="btn_login_carrito_container">
