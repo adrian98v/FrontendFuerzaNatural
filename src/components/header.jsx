@@ -25,14 +25,8 @@ const Header = () => {
   
   const navigate = useNavigate();
 
-  async function handleLogout() {
+  function handleLogout() {
     try {
-      const result = await axios.post(
-        "https://backendfuerzanatural.onrender.com/logout",
-        {},
-        { withCredentials: true }
-      );
-
       setUser(null);
       navigate("/");
       setMenuLateralAbierto(false);
@@ -52,23 +46,27 @@ const Header = () => {
 
   useEffect(() => {
     async function verificarSesion() {
-      const result = await axios.get("https://backendfuerzanatural.onrender.com/userCheck", {
-        withCredentials: true,
-      });
+
+      const result = await axios.post("https://backendfuerzanatural.onrender.com/userCheck", user);
 
       if (result.data.user) {
         setUser(result.data.user);
+      }else{
+        setUser(null)
       }
     }
 
     verificarSesion();
 
-
   }, []);
 
 
   useEffect(()=>{
-    document.querySelector(".nav_container").classList.toggle("visible")
+    const navContainer = document.querySelector(".nav_container");
+    if(navContainer){
+      navContainer.classList.toggle("visible")
+
+    }
   }, [menuResponsive])
 
  
@@ -80,7 +78,9 @@ const Header = () => {
       setAnchoPantalla(width);
 
       if(width > 800)setMenuResponsive(true)
-      document.querySelector(".nav_container").classList.remove("visible")
+      
+      const navContainer = document.querySelector(".nav_container");
+      navContainer.classList.remove("visible")
     };
     manejarResize();
     window.addEventListener("resize", manejarResize);

@@ -30,13 +30,15 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+
     async function verificarSesion() {
-      const result = await axios.get("https://backendfuerzanatural.onrender.com/userCheck", {
-        withCredentials: true,
-      });
+
+      const result = await axios.post("https://backendfuerzanatural.onrender.com/userCheck", user);
 
       if (result.data.user) {
         setUser(result.data.user);
+      }else{
+        setUser(null)
       }
     }
 

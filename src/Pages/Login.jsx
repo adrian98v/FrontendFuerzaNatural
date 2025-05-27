@@ -1,14 +1,17 @@
 import './login.css';
 import logo from '../assets/Logo_SinFondo_MásChico.png';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { DataContext } from "../App.jsx";
 
 function Login() {
+
   const [email, setEmail] = useState('');
   const [contrasenia, setPassword] = useState('');
   const [message, setMessage] = useState('')
+  const {user, setUser} = useContext(DataContext)
+
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -18,8 +21,11 @@ function Login() {
       const response = await axios.post('https://backendfuerzanatural.onrender.com/login', {
         email,
         contrasenia
-      }, {withCredentials: true});
+      });
 
+      if (result.data.user) {
+        setUser(response.data.user);
+      }
       
       navigate('/'); // redirige al home
 
