@@ -31,24 +31,24 @@ function App() {
 
   useEffect(() => {
 
-    async function verificarSesion() {
-
-     
-
+    if(user){
+      async function verificarSesion() {
+      
         console.log(user)
 
         const result = await axios.post("https://backendfuerzanatural.onrender.com/userCheck", user);
 
-        console.log(result)
-
+        
         if (result.data.user) {
           setUser(result.data.user);
         }
-    
+      }
       
-    }
+    
 
     verificarSesion();
+    }
+    
   }, []);
 
   return (
