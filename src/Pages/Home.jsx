@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import "./home.css";
 import Header from "../components/header.jsx"; // Importa el componente Header
 import Footer from "../components/footer.jsx";
-
+import { Link } from "react-router-dom";
 import Fondo1 from "../assets/FONDO-PRUEBA-HOME.jpeg";
 import Imagen1 from "../assets/MASA_CRUDA.jpg";
 import Imagen2 from "../assets/MEDIALUNA_MITAD.jpg";
@@ -64,12 +64,12 @@ function Home() {
             Alimentos 100% reales para una alimentación conciente
           </h2>
           <div className="buttons">
-            <a href="/catalogo">
+            <Link to="/catalogo">
               <button className="catalog-button">Ver Catálogo</button>
-            </a>
-            <a href="/about">
+            </Link>
+            <Link to="/about">
               <button className="about-button">Más Sobre Nosotros</button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
