@@ -29,15 +29,15 @@ export const AdminHeader = () => {
         
 
         <div className="admin_stock_container">
-            <Link href="/admin-stock">Stock</Link>
+            <Link to="/admin-stock">Stock</Link>
         </div>
 
         <div className="admin_clientes_container">
-            <Link href="/admin-clientes">Clientes</Link>
+            <Link to="/admin-clientes">Clientes</Link>
         </div>
 
         <div className="admin_pedidos_container">
-            <Link href="/admin-pedidos">Pedidos</Link>
+            <Link to="/admin-pedidos">Pedidos</Link>
         </div>
 
         <button className="admin_account_button" onClick={()=>{navigate("/admin-signup")}}>
