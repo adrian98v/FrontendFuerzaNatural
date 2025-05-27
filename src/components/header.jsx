@@ -211,9 +211,9 @@ const Header = () => {
                 </li>
               ))}
 
-              <a href="/checkout" className="carrito-controles">
+              <Link to="/checkout" className="carrito-controles">
                 <button>Finalizar Compra</button>
-              </a>
+              </Link>
             </ul>
           )}
           <hr />
@@ -231,11 +231,11 @@ const Header = () => {
       <li>
         <div className='nav_container_menu_lateral'>
         <nav className={`header_options_menu_lateral ${menuResponsive ? 'activo' : ''}`}>
-          <a href="/">Inicio</a>
-          <a href="/catalogo">Tienda</a>
-          <a href="/About">Nosotros</a>
-          <a href="/reventa">Reventa</a>
-          <a href="/eventos">Eventos</a>
+          <Link to="/">Inicio</Link>
+          <Link to="/catalogo">Tienda</Link>
+          <Link to="/about">Nosotros</Link>
+          <Link to="/reventa">Reventa</Link>
+          <Link to="/eventos">Eventos</Link>
         </nav>
     </div>
       </li>
