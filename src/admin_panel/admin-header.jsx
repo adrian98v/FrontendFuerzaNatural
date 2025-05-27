@@ -1,6 +1,6 @@
 import "./admin-header.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import logo from "../assets/Logo_SinFondo_MásChico.png";
 import React, { useEffect, useState, useContext } from "react";
 import { DataContext } from '../App.jsx'
@@ -11,7 +11,7 @@ export const AdminHeader = () => {
     const navigate = useNavigate()
 
     const {user, setUser} = useContext(DataContext)
-    
+
     function handleLogout() {
         try {
       
@@ -29,15 +29,15 @@ export const AdminHeader = () => {
         
 
         <div className="admin_stock_container">
-            <a href="/admin-stock">Stock</a>
+            <Link href="/admin-stock">Stock</Link>
         </div>
 
         <div className="admin_clientes_container">
-            <a href="/admin-clientes">Clientes</a>
+            <Link href="/admin-clientes">Clientes</Link>
         </div>
 
         <div className="admin_pedidos_container">
-            <a href="/admin-pedidos">Pedidos</a>
+            <Link href="/admin-pedidos">Pedidos</Link>
         </div>
 
         <button className="admin_account_button" onClick={()=>{navigate("/admin-signup")}}>
