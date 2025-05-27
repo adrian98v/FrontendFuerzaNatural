@@ -23,6 +23,8 @@ function Login() {
         contrasenia
       });
 
+      console.log(response)
+
       if (result.data.user) {
         setUser(response.data.user);
       }
