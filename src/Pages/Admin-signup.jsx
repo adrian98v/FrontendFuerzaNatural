@@ -2,7 +2,7 @@ import './signup.css';
 import logo from '../assets/Logo_SinFondo_MásChico.png';
 import axios from 'axios';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
  export function AdminSignup() {
@@ -38,9 +38,9 @@ import { useNavigate } from 'react-router-dom';
   return (
     <div className="signup-container">
       <form className="form" onSubmit={handleSignup}>
-        <a className="a_logo" href="/">
+        <Link className="a_logo" to="/">
           <img src={logo} alt="Logo" className="Logo" />
-        </a>
+        </Link>
 
         <h2 className="title">Crear cuenta</h2>
 
