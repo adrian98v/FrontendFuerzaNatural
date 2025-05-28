@@ -354,6 +354,11 @@
   .precio {
     font-size: 0.9rem;
   }
+
+  .precio{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 }
 
 /* Responsive para móviles (hasta 768px) */
